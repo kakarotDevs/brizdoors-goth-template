@@ -1,0 +1,33 @@
+package layouts
+
+templ Base(title string, children ...templ.Component) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<title>{ title }</title>
+			<link rel="stylesheet" href="/public/styles.css"/>
+			<script src="https://unpkg.com/htmx.org@2.0.4" crossorigin="anonymous"></script>
+		</head>
+		<body class="antialiased font-thin bg-white min-h-screen">
+			<div class="flex flex-row max-w-7xl mx-auto min-h-screen">
+				<!-- Sidebar / Nav -->
+				<nav class="flex w-full flex-col justify-start gap-8 p-6 md:w-72 md:justify-start md:p-8">
+					<a href="/" class="text-orange-400 hover:text-orange-600 text-4xl whitespace-nowrap sm:text-5xl">
+						Briz Doors
+					</a>
+					<ul class="flex gap-4 sm:gap-8 md:mt-8 flex-col">
+						<li><a href="/about" class="text-gray-400 hover:text-gray-900 text-2xl sm:text-3xl">About</a></li>
+						<li><a href="/contact" class="text-gray-400 hover:text-gray-900 text-2xl sm:text-3xl">Contact</a></li>
+						<li><a href="/order" class="text-gray-400 hover:text-gray-900 text-2xl sm:text-3xl">Order</a></li>
+					</ul>
+				</nav>
+				<!-- Main Content -->
+				<main class="flex-1 p-8">
+					{ children... }
+				</main>
+			</div>
+		</body>
+	</html>
+}

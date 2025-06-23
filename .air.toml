@@ -1,0 +1,48 @@
+# Root directory of your project
+root = "."
+tmp_dir = "tmp"
+
+[build]
+  # Output binary location
+  bin = "./tmp/main.exe"
+
+  # Build command
+  cmd = "go build -tags dev -o ./tmp/main.exe ."
+
+  # Delay in milliseconds before rebuilding (to avoid rebuild storms)
+  delay = 20
+
+  # Exclude watching these directories
+  exclude_dir = ["assets", "tmp", "vendor"]
+
+  # Exclude matching files
+  exclude_regex = [".*_templ\\.go"]
+
+  # Watch only these file extensions
+  include_ext = ["go", "templ", "html", "tpl", "tmpl"]
+
+  # Stop running app on error
+  stop_on_error = true
+
+  # Log build output
+  log = "build-errors.log"
+
+  # Proper signal handling
+  send_interrupt = true
+  kill_delay = "0s"
+
+[color]
+  build = "green"
+  build_error = "red"
+  build_warning = "yellow"
+  build_success = "green"
+  build_info = "blue"
+  build_debug = "cyan"
+  build_notice = "magenta"
+  build_error_notice = "red"
+
+[log]
+  time = true
+
+[misc]
+  clean_on_exit = true
