@@ -37,5 +37,5 @@ func ChatHandler(w http.ResponseWriter, r *http.Request) error {
 // Placeholder function for AI integration
 func generateAIResponse(message string) string {
 	// TODO: Call your AI service here (e.g., OpenAI, etc.)
-	return "This is a placeholder AI response."
+	return fmt.Sprintf("This is a placeholder AI response to: %s", message)
 }
