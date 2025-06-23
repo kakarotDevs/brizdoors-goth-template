@@ -20,7 +20,6 @@ func main() {
 
 	r := chi.NewMux()
 
-	// Middleware should come before route declarations
 	r.Use(middleware.Recoverer)
 
 	r.Handle("/public/*", public())
@@ -33,6 +32,8 @@ func main() {
 	r.Get("/about", handlers.Make(handlers.HandleAbout))
 	r.Get("/contact", handlers.Make(handlers.HandleContact))
 	r.Get("/order", handlers.Make(handlers.HandleOrder))
+
+	r.Post("/chat", handlers.Make(handlers.ChatHandler))
 
 	listenAddr := os.Getenv("LISTEN_ADDR")
 	if listenAddr == "" {
