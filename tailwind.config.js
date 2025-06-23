@@ -4,14 +4,14 @@ module.exports = {
     "./views/**/*.templ",
     "./layouts/**/*.templ",
     "./components/**/*.templ",
-    "./handlers/**/*.go", // if needed
-    "./*.go",             // for main.go, etc.
+    "./handlers/**/*.go",
+    "./*.go",
   ],
   theme: {
     extend: {
       fontFamily: {
-        sans: ["IBM Plex Sans", "sans-serif"],
-        body: ["IBM Plex Sans", "sans-serif"],
+        sans: ["'Nunito Sans'", "sans-serif"],
+        body: ["'Nunito Sans'", "sans-serif"],
       },
     },
   },
