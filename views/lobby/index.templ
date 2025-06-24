@@ -1,0 +1,17 @@
+package lobby
+
+import "github.com/kakarotDevs/brizdoors-goth-template/layouts"
+
+templ Index(userName string) {
+	@layouts.Base("Lobby") {
+		<div class="w-full max-w-7xl mx-auto px-6 py-8">
+			<header class="flex justify-between items-center mb-8">
+				<h1 class="text-3xl font-bold">Welcome, {userName}</h1>
+			</header>
+
+			<!-- Main lobby content here -->
+			<p class="text-gray-600">This is your lobby. You can manage orders, account, and settings from here.</p>
+		</div>
+	}
+}
+

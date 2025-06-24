@@ -10,6 +10,7 @@ import (
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/joho/godotenv"
 	"github.com/kakarotDevs/brizdoors-goth-template/handlers"
+	"github.com/kakarotDevs/brizdoors-goth-template/internal/auth"
 )
 
 func main() {
@@ -18,8 +19,14 @@ func main() {
 		os.Exit(1)
 	}
 
-	r := chi.NewMux()
+	// Initialize Google OAuth config after env vars loaded
+	auth.InitGoogleOauth(
+		os.Getenv("GOOGLE_CLIENT_ID"),
+		os.Getenv("GOOGLE_CLIENT_SECRET"),
+		"http://localhost:3000/auth/google/callback",
+	)
 
+	r := chi.NewMux()
 	r.Use(middleware.Recoverer)
 
 	r.Handle("/public/*", public())
@@ -28,12 +35,32 @@ func main() {
 		http.Error(w, "Page not found", http.StatusNotFound)
 	})
 
+	// Public Routes
 	r.Get("/", handlers.Make(handlers.HandleHome))
 	r.Get("/about", handlers.Make(handlers.HandleAbout))
 	r.Get("/contact", handlers.Make(handlers.HandleContact))
 	r.Get("/order", handlers.Make(handlers.HandleOrder))
+	r.Get("/register", handlers.Make(handlers.HandleRegister))
+	r.Get("/login", handlers.Make(handlers.HandleLogin))
+	r.Get("/logout", handlers.Make(handlers.HandleLogout))
+	r.Post("/login", handlers.Make(handlers.HandleLogin))
+	r.Post("/register", handlers.Make(handlers.HandleRegister))
 
-	r.Post("/chat", handlers.Make(handlers.ChatHandler))
+	// Auth
+	r.Get("/auth/google", handlers.Make(handlers.HandleGoogleLogin))
+	r.Get("/auth/google/callback", handlers.Make(handlers.HandleGoogleCallback))
+	r.Get("/auth/menu", handlers.Make(handlers.HandleAuthMenu))
+	r.Get("/auth/menu/toggle", handlers.Make(handlers.HandleAuthMenuToggle))
+	r.Get("/auth/menu/content", handlers.Make(handlers.HandleAuthMenuContent))
+
+	// Protected Routes
+	r.Group(func(r chi.Router) {
+		r.Use(auth.RequireAuth)
+		r.Get("/lobby", handlers.Make(handlers.HandleLobby))
+		r.Get("/profile", handlers.Make(handlers.HandleProfile))
+		r.Get("/settings", handlers.Make(handlers.HandleSettings))
+		r.Post("/logout", handlers.Make(handlers.HandleLogout))
+	})
 
 	listenAddr := os.Getenv("LISTEN_ADDR")
 	if listenAddr == "" {

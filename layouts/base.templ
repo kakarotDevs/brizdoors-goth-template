@@ -18,11 +18,10 @@ templ Base(title string) {
 			<title>{ title }</title>
 			<link rel="stylesheet" href="/public/styles.css"/>
 			<script src="https://unpkg.com/htmx.org@2.0.4" crossorigin="anonymous"></script>
-		</head>
-		<body class="antialiased font-thin font-sans bg-white min-h-screen flex flex-col">
+			</head>
+					<body class="antialiased font-thin font-sans bg-white min-h-screen flex flex-col">
 
-			<!-- Header: Logo -->
-			<header class="flex w-full items-center justify-start px-4 py-4">
+						<header class="flex w-full items-center justify-between px-4 py-4">
 				<a href="/">
 					<img
 						src="/public/branding/logos/light/brizdoors-primary-light-1600.svg"
@@ -30,7 +29,18 @@ templ Base(title string) {
 						class="h-12 w-auto"
 					/>
 				</a>
+
+				<!-- Auth menu loads here -->
+				<div
+					id="auth-menu"
+					hx-get="/auth/menu"
+					hx-trigger="load"
+					hx-swap="innerHTML"
+				>
+					<!-- HTMX will swap this with the real menu if logged in -->
+				</div>
 			</header>
+
 
 			<!-- Main Content -->
 			<main class="flex-1 relative flex items-center justify-center overflow-hidden">
