@@ -10,8 +10,8 @@ import (
 
 // Public order page — no login required
 func HandleOrder(w http.ResponseWriter, r *http.Request) error {
-	// Just render the order page
-	return Render(w, r, order.Index())
+	isDarkMode := GetThemeFromRequest(r)
+	return Render(w, r, order.Index(isDarkMode))
 }
 
 // Authenticated order page — user must be logged in
@@ -33,5 +33,6 @@ func HandleAuthOrder(w http.ResponseWriter, r *http.Request) error {
 	_ = user // Placeholder to prevent unused variable error
 
 	// Pass user info to the order page if needed (or just render)
-	return Render(w, r, order.Index())
+	isDarkMode := GetThemeFromRequest(r)
+	return Render(w, r, order.Index(isDarkMode))
 }

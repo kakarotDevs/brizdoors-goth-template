@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* HSL Color System - Dark Mode as Default */
+:root {
+  /* Dark Mode Colors (Default) */
+  --bg-dark: 0 0% 0%; /* Very dark background */
+  --bg: 0 0% 5%; /* Main background */
+  --bg-light: 0 0% 10%; /* Light surface/cards */
+  --text: 0 0% 95%; /* Main text */
+  --text-muted: 0 0% 70%; /* Muted text */
+}
+
+/* Light Mode Colors (when .light class is applied) */
+.light {
+  --bg-dark: 0 0% 90%; /* Very light background */
+  --bg: 0 0% 95%; /* Main background */
+  --bg-light: 0 0% 100%; /* Light surface/cards */
+  --text: 0 0% 5%; /* Main text */
+  --text-muted: 0 0% 30%; /* Muted text */
+}
+
+/* Logo switching based on theme */
+/* Default (dark mode) - show dark logo, hide light logo */
+.logo-dark {
+  display: block;
+}
+.logo-light {
+  display: none;
+}
+
+/* Light mode - show light logo, hide dark logo */
+.light .logo-dark {
+  display: none;
+}
+.light .logo-light {
+  display: block;
+}
+
+/* Fix autofill styles using custom CSS variables */
+/* Dark mode autofill (default) */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px hsl(var(--bg)) inset !important;
+  -webkit-text-fill-color: hsl(var(--text)) !important;
+  transition: background-color 5000s ease-in-out 0s;
+  border-color: hsl(var(--bg-light)) !important;
+}
+
+/* Light mode autofill */
+.light input:-webkit-autofill,
+.light input:-webkit-autofill:hover,
+.light input:-webkit-autofill:focus,
+.light input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px hsl(var(--bg)) inset !important;
+  -webkit-text-fill-color: hsl(var(--text)) !important;
+  transition: background-color 5000s ease-in-out 0s;
+  border-color: hsl(var(--bg-light)) !important;
+}
+
+/* Ensure autofill doesn't override our background classes */
+input[type="email"]:-webkit-autofill,
+input[type="password"]:-webkit-autofill,
+input[type="text"]:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px hsl(var(--bg)) inset !important;
+  -webkit-text-fill-color: hsl(var(--text)) !important;
+  border-color: hsl(var(--bg-light)) !important;
+}
+
+.light input[type="email"]:-webkit-autofill,
+.light input[type="password"]:-webkit-autofill,
+.light input[type="text"]:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px hsl(var(--bg-dark)) inset !important;
+  -webkit-text-fill-color: hsl(var(--text)) !important;
+  border-color: transparent !important;
+}
+
+/* Alternative Input Styles - Uncomment the one you prefer */
+
+/* Option 1: Subtle Underline Style */
+/*
+.input-underline {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid hsl(var(--bg-light));
+  border-radius: 0;
+  padding: 12px 0;
+  transition: border-color 0.2s ease;
+}
+.input-underline:focus {
+  border-bottom-color: rgb(59 130 246);
+  background: transparent;
+}
+*/
+
+/* Option 2: Glass/Frosted Effect */
+/*
+.input-glass {
+  background: hsl(var(--bg-light) / 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid hsl(var(--text) / 0.1);
+  border-radius: 12px;
+}
+.input-glass:focus {
+  background: hsl(var(--bg-light) / 0.2);
+  border-color: rgb(59 130 246);
+}
+*/
+
+/* Option 3: Floating Label Effect */
+/*
+.input-floating {
+  background: transparent;
+  border: 2px solid hsl(var(--bg-light));
+  border-radius: 8px;
+  padding: 16px 12px 8px;
+}
+.input-floating:focus {
+  border-color: rgb(59 130 246);
+  background: hsl(var(--bg-light) / 0.5);
+}
+*/
+

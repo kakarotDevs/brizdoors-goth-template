@@ -22,5 +22,6 @@ func HandleLobby(w http.ResponseWriter, r *http.Request) error {
 		return nil
 	}
 
-	return Render(w, r, lobby.Index(user.Name))
+	isDarkMode := GetThemeFromRequest(r)
+	return Render(w, r, lobby.Index(user.Name, isDarkMode))
 }

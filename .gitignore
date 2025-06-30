@@ -25,7 +25,8 @@ build-errors.log
 
 # Node modules and artifacts
 node_modules/
-*.css
+# Compiled CSS (but not source CSS)
+public/styles.css
 *.css.map
 
 # Environment files (API keys, ports, secrets)

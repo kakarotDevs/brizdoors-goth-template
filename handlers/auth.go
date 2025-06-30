@@ -12,6 +12,7 @@ import (
 	"github.com/kakarotDevs/brizdoors-goth-template/internal/auth"
 	"github.com/kakarotDevs/brizdoors-goth-template/models"
 	"github.com/kakarotDevs/brizdoors-goth-template/views/partials"
+	authviews "github.com/kakarotDevs/brizdoors-goth-template/views/auth"
 	"golang.org/x/crypto/bcrypt"
 )
 
@@ -31,26 +32,27 @@ func generateState() string {
 
 func HandleRegister(w http.ResponseWriter, r *http.Request) error {
 	if r.Method == http.MethodGet {
-		return Render(w, r, partials.Register(""))
+		isDarkMode := GetThemeFromRequest(r)
+		return Render(w, r, authviews.Register("", isDarkMode))
 	}
 
 	if r.Method == http.MethodPost {
-		ID := uuid.New().String()
 		email := r.FormValue("email")
 		password := r.FormValue("password")
 
 		if email == "" || password == "" {
-			// Return form with error
-			return Render(w, r, partials.Register("Email and password are required"))
+			isDarkMode := GetThemeFromRequest(r)
+			return Render(w, r, authviews.Register("Email and password are required", isDarkMode))
 		}
 
 		hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 		if err != nil {
-			return Render(w, r, partials.Register("Failed to hash password"))
+			isDarkMode := GetThemeFromRequest(r)
+			return Render(w, r, authviews.Register("Error creating account", isDarkMode))
 		}
 
 		user := models.User{
-			ID:       ID,
+			ID:       uuid.New().String(),
 			Email:    email,
 			Password: string(hashedPassword),
 		}
@@ -58,9 +60,11 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) error {
 		err = models.CreateUser(&user)
 		if err != nil {
 			if err == models.ErrUserAlreadyExists {
-				return Render(w, r, partials.Register("User with that email already exists"))
+				isDarkMode := GetThemeFromRequest(r)
+				return Render(w, r, authviews.Register("User with that email already exists", isDarkMode))
 			}
-			return Render(w, r, partials.Register("Failed to create user"))
+			isDarkMode := GetThemeFromRequest(r)
+			return Render(w, r, authviews.Register("Error creating account", isDarkMode))
 		}
 
 		// On success, redirect (HTMX handles redirect headers)
@@ -78,18 +82,27 @@ func HandleLogin(w http.ResponseWriter, r *http.Request) error {
 	email := r.FormValue("email")
 	password := r.FormValue("password")
 
-	user, err := models.GetUserByEmail(email)
-
-	if err == models.ErrUserNotFound {
+	if email == "" || password == "" {
 		if r.Header.Get("HX-Request") == "true" {
-			return Render(w, r, partials.Register("No user found, create a new account."))
+			isDarkMode := GetThemeFromRequest(r)
+			return Render(w, r, authviews.Register("Email and password are required", isDarkMode))
 		}
-
-		http.Redirect(w, r, "/register", http.StatusFound)
+		http.Error(w, "Email and password are required", http.StatusBadRequest)
 		return nil
 	}
 
+	user, err := models.GetUserByEmail(email)
+
+	if err == models.ErrUserNotFound {
+		// Auto-create account instead of redirecting
+		return createAccountAndLogin(w, r, email, password)
+	}
+
 	if err := bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password)); err != nil {
+		if r.Header.Get("HX-Request") == "true" {
+			isDarkMode := GetThemeFromRequest(r)
+			return Render(w, r, authviews.Register("Invalid email or password", isDarkMode))
+		}
 		http.Error(w, "Invalid password", http.StatusUnauthorized)
 		return nil
 	}
@@ -101,6 +114,12 @@ func HandleLogin(w http.ResponseWriter, r *http.Request) error {
 
 func HandleLogout(w http.ResponseWriter, r *http.Request) error {
 	internal.ClearUserSession(w, r)
+	
+	// Set no-cache headers to prevent caching
+	w.Header().Set("Cache-Control", "no-cache, no-store, must-revalidate")
+	w.Header().Set("Pragma", "no-cache")
+	w.Header().Set("Expires", "0")
+	
 	http.Redirect(w, r, "/", http.StatusFound)
 	return nil
 }
@@ -199,8 +218,8 @@ func HandleAuthMenuToggle(w http.ResponseWriter, r *http.Request) error {
 		return nil
 	}
 
-	// Return the dropdown content
-	return Render(w, r, partials.AuthMenuContent(user.Name))
+	// Return the open dropdown menu with content
+	return Render(w, r, partials.AuthMenuOpen(user.Name))
 }
 
 func HandleAuthMenuContent(w http.ResponseWriter, r *http.Request) error {
@@ -219,4 +238,56 @@ func HandleAuthMenuContent(w http.ResponseWriter, r *http.Request) error {
 
 	// Return just the dropdown content
 	return Render(w, r, partials.AuthMenuContent(user.Name))
+}
+
+// createAccountAndLogin creates a new account and logs the user in automatically
+func createAccountAndLogin(w http.ResponseWriter, r *http.Request, email, password string) error {
+	// Hash the password
+	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
+	if err != nil {
+		if r.Header.Get("HX-Request") == "true" {
+			isDarkMode := GetThemeFromRequest(r)
+			return Render(w, r, authviews.Register("Error creating account", isDarkMode))
+		}
+		http.Error(w, "Error creating account", http.StatusInternalServerError)
+		return nil
+	}
+
+	// Create the user
+	user := models.User{
+		ID:       uuid.New().String(),
+		Email:    email,
+		Password: string(hashedPassword),
+	}
+
+	err = models.CreateUser(&user)
+	if err != nil {
+		if err == models.ErrUserAlreadyExists {
+			// This shouldn't happen since we checked, but handle gracefully
+			if r.Header.Get("HX-Request") == "true" {
+				isDarkMode := GetThemeFromRequest(r)
+				return Render(w, r, authviews.Register("Account already exists. Please try logging in.", isDarkMode))
+			}
+			http.Error(w, "Account already exists", http.StatusConflict)
+			return nil
+		}
+		if r.Header.Get("HX-Request") == "true" {
+			isDarkMode := GetThemeFromRequest(r)
+			return Render(w, r, authviews.Register("Error creating account", isDarkMode))
+		}
+		http.Error(w, "Error creating account", http.StatusInternalServerError)
+		return nil
+	}
+
+	// Automatically log the user in
+	internal.SetUserSession(w, user.ID)
+	
+	// Redirect to lobby
+	if r.Header.Get("HX-Request") == "true" {
+		w.Header().Set("HX-Redirect", "/lobby")
+		w.WriteHeader(http.StatusOK)
+	} else {
+		http.Redirect(w, r, "/lobby", http.StatusFound)
+	}
+	return nil
 }

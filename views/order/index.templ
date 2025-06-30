@@ -2,11 +2,13 @@ package order
 
 import "github.com/kakarotDevs/brizdoors-goth-template/layouts"
 
-templ Index() {
-	@layouts.Base("Order") {
-		<div class="p-8">
-			<h1 class="text-3xl font-bold">Order a Door</h1>
-			<p class="mt-2 text-gray-700">Let us know what you need and we’ll handle the rest.</p>
-		</div>
+templ Index(isDarkMode bool) {
+	@layouts.Base("Order", isDarkMode) {
+		<section class="w-full max-w-4xl mx-auto px-6 py-12">
+			<h1 class="text-4xl font-bold mb-6 text-text">Order a Door</h1>
+			<div class="bg-bg-light rounded-lg shadow-lg p-6 border border-bg-light border-opacity-30">
+				<p class="text-text-muted">Let us know what you need and we'll handle the rest.</p>
+			</div>
+		</section>
 	}
 }

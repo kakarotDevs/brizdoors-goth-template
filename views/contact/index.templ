@@ -2,11 +2,11 @@ package contact
 
 import "github.com/kakarotDevs/brizdoors-goth-template/layouts"
 
-templ Index() {
-	@layouts.Base("Contact") {
+templ Index(isDarkMode bool) {
+	@layouts.Base("Contact", isDarkMode) {
 		<div class="p-8">
-			<h1 class="text-3xl font-bold">Contact Us</h1>
-			<p class="mt-2 text-gray-700">Send us a message or drop by. We're always ready to help.</p>
+			<h1 class="text-3xl font-bold text-text">Contact Us</h1>
+			<p class="mt-2 text-text-muted">Send us a message or drop by. We're always ready to help.</p>
 		</div>
 	}
 }

@@ -46,12 +46,16 @@ func main() {
 	r.Post("/login", handlers.Make(handlers.HandleLogin))
 	r.Post("/register", handlers.Make(handlers.HandleRegister))
 
+	// Theme
+	r.Post("/toggle-theme", handlers.Make(handlers.ThemeToggleHandler))
+
 	// Auth
 	r.Get("/auth/google", handlers.Make(handlers.HandleGoogleLogin))
 	r.Get("/auth/google/callback", handlers.Make(handlers.HandleGoogleCallback))
 	r.Get("/auth/menu", handlers.Make(handlers.HandleAuthMenu))
 	r.Get("/auth/menu/toggle", handlers.Make(handlers.HandleAuthMenuToggle))
 	r.Get("/auth/menu/content", handlers.Make(handlers.HandleAuthMenuContent))
+	
 
 	// Protected Routes
 	r.Group(func(r chi.Router) {

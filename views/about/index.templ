@@ -2,11 +2,13 @@ package about
 
 import "github.com/kakarotDevs/brizdoors-goth-template/layouts"
 
-templ Index() {
-	@layouts.Base("About") {
-		<div class="p-8">
-			<h1 class="text-3xl font-bold">About Briz Doors</h1>
-			<p class="mt-2 text-gray-700">We open new doors with simplicity, efficiency, and style.</p>
-		</div>
+templ Index(isDarkMode bool) {
+	@layouts.Base("About", isDarkMode) {
+		<section class="w-full max-w-4xl mx-auto px-6 py-12">
+			<h1 class="text-4xl font-bold mb-6 text-text">About Briz Doors</h1>
+			<div class="bg-bg-light rounded-lg shadow-lg p-6 border border-bg-light border-opacity-30">
+				<p class="text-text-muted">We open new doors with simplicity, efficiency, and style.</p>
+			</div>
+		</section>
 	}
 }
