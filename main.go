@@ -20,10 +20,11 @@ func main() {
 	}
 
 	// Initialize Google OAuth config after env vars loaded
+	// Using ngrok URL for mobile testing
 	auth.InitGoogleOauth(
 		os.Getenv("GOOGLE_CLIENT_ID"),
 		os.Getenv("GOOGLE_CLIENT_SECRET"),
-		"http://localhost:3000/auth/google/callback",
+		"https://6582-220-235-205-48.ngrok-free.app/auth/google/callback",
 	)
 
 	r := chi.NewMux()
@@ -71,7 +72,7 @@ func main() {
 		listenAddr = ":3000"
 	}
 
-	slog.Info("Starting server", "url", fmt.Sprintf("http://localhost%s", listenAddr))
+	slog.Info("Starting server", "localhost", fmt.Sprintf("http://localhost%s", listenAddr), "network", "http://192.168.86.41:3000")
 
 	if err := http.ListenAndServe(listenAddr, r); err != nil {
 		slog.Error("Server exited with error", "error", err)

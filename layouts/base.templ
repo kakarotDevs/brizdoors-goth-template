@@ -16,17 +16,17 @@ templ Base(title string, isLightMode bool) {
 	</head>
 	<body class="antialiased font-thin font-sans bg-bg text-text min-h-screen flex flex-col transition-colors duration-200">
 
-		<header class="w-full bg-bg">
-			<div class="max-w-7xl mx-auto px-6 py-4">
-				<div class="flex items-center justify-between">
+		<header class="w-full bg-bg border-b border-bg-light/20">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
+				<div class="flex items-center justify-between w-full">
 					<!-- Logo Section -->
 					<a href="/" class="flex-shrink-0 hover:opacity-80 transition-opacity duration-200">
-						<img src="/public/branding/logos/light/brizdoors-primary-light.svg" alt="BrizDoors Logo" class="logo-light h-12 w-auto" />
-						<img src="/public/branding/logos/dark/brizdoors-primary-dark.svg" alt="BrizDoors Logo" class="logo-dark h-12 w-auto" />
+						<img src="/public/branding/logos/light/brizdoors-primary-light.svg" alt="BrizDoors Logo" class="logo-light h-8 sm:h-12 lg:h-14 xl:h-16 w-auto" />
+						<img src="/public/branding/logos/dark/brizdoors-primary-dark.svg" alt="BrizDoors Logo" class="logo-dark h-8 sm:h-12 lg:h-14 xl:h-16 w-auto" />
 					</a>
 
 					<!-- Navigation Actions -->
-					<div class="flex items-center gap-6">
+					<div class="flex items-center gap-2 sm:gap-4">
 						@partials.ThemeToggle(isLightMode)
 						<div id="auth-menu" hx-get="/auth/menu" hx-trigger="load" hx-swap="innerHTML"></div>
 					</div>
