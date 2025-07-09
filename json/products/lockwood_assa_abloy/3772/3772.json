@@ -1,0 +1,122 @@
+{
+  "hardware_item_code": "LWD-SEL3772-60-SS",
+  "product_type": "mortice_lock",
+  "name": "Lockwood Selector 3772 Universal Mortice Lock, 60mm BS, Satin Stainless",
+  "description": "Lockwood Selector® 3772 universal mortice lock with configurable functions (including Escape, Passage, Combination). Features anti-lockout and selectable holdback. Zinc diecast body, stainless steel chassis and faceplate. Fire rated. Requires cylinder and door furniture.",
+  "status": "active",
+
+  "manufacturer_details": {
+    "name": "Lockwood Assa Abloy",
+    "part_code": "3772SS",
+    "article_number": null,
+    "series": "Selector 3770 Series",
+    "ordering_method": null,
+    "order_reference_code_format": "PartNo (e.g., 3772SS)"
+  },
+  "available_finish_codes": ["LWD_MF_SS"],
+  "selected_finish_code": "LWD_MF_SS",
+
+  "backset_options": [
+    { "value": 60, "unit": "mm" },
+    { "value": 89, "unit": "mm" },
+    { "value": 127, "unit": "mm" }
+  ],
+  "selected_backset": { "value": 60, "unit": "mm" },
+
+  "requires_handing": false,
+  "handing": "U",
+
+  "standardized_function_description": "Universal Mortice Lock - Configurable (e.g., Escape, Passage, Combination, Anti-Lockout, Holdback). Settings under faceplate.",
+  "is_as1428_compliant": null,
+
+  "certifications_and_standards": [
+    {
+      "code": "AS1905.1-2015 Part 1",
+      "name": "Fire Resistant Doorsets",
+      "description_of_standard": "Australian Standard for fire door assemblies.",
+      "product_compliance_notes": "Successfully tested up to 4 hours on suitable fire door assemblies."
+    },
+    {
+      "code": "AS4145.2-2008 D8",
+      "name": "Locksets and hardware for doors - Durability Rating D8",
+      "description_of_standard": "Australian Standard for durability of mechanical elements (500,000 cycles).",
+      "product_compliance_notes": "Conforms to D8 (Durability - Extreme)."
+    },
+    {
+      "code": "AS4145.2-2008 S7",
+      "name": "Locksets and hardware for doors - Security Rating S7",
+      "description_of_standard": "Australian Standard for physical security.",
+      "product_compliance_notes": "Conforms to S7 (Physical Security). Can be S8 with appropriate furniture and cylinder."
+    },
+    {
+      "code": "AS4145.2-2008 C6",
+      "name": "Locksets and hardware for doors - Corrosion Resistance C6",
+      "description_of_standard": "Australian Standard for corrosion resistance (168 hours Neutral Salt Spray).",
+      "product_compliance_notes": "Conforms to C6 (Corrosion Resistance - High)."
+    }
+  ],
+  "tags": [
+    "mortice_lock",
+    "commercial",
+    "heavy-duty",
+    "fire_rated",
+    "selector_series",
+    "lockwood",
+    "universal_function",
+    "escape_capable"
+  ],
+  "image_url": "https://gw-assets.assaabloy.com/is/image/assaabloy/25408-3772ss_lw_en_c1_v2:1x1?wid=1520&hei=1520",
+  "material_main": "Zinc Alloy (Case), Stainless Steel (Chassis, Faceplate, Bolts)",
+  "mortice_lock_details": {
+    "manufacturer_function_code": "Universal (Selectable: Passage, Combination, Escape, etc.)",
+    "manufacturer_lock_function_term": "Universal Primary Mortice Lock",
+    "compatible_door_material_code_manufacturer": null,
+    "intrinsic_backset": { "value": 60, "unit": "mm" },
+    "case_dimensions_mm": {
+      "height": { "value": 117, "unit": "mm" },
+      "depth": { "value": 88, "unit": "mm" },
+      "thickness": { "value": 19, "unit": "mm" }
+    },
+    "faceplate_dimensions_mm": {
+      "length": { "value": 175, "unit": "mm" },
+      "width": { "value": 25, "unit": "mm" }
+    },
+    "strike_plate_included": true,
+    "spindle_size_mm": 7.6,
+    "cylinder_type_compatible": "Lockwood 570 Oval Cylinder"
+  },
+
+  "ordering_info": {
+    "requires_combination_with_other_parts": true,
+    "example_order_string_manufacturer": "3772SS",
+    "notes_for_ordering": "Universal lock with selectable functions (Passage, Combination, Escape, Anti-lockout, Holdback). Supplied less cylinder. Standard 60mm backset. For 89mm use 4772SS, for 127mm use 5772SS. Suits door thickness 32-50mm."
+  },
+
+  "compatibility": {
+    "compatible_door_series_internal": [],
+    "compatible_hardware_item_codes_internal": [
+      "LWD-S1220-L70-SET-SC",
+      "<your_code_for_Lockwood_570_Cylinder>"
+    ]
+  },
+
+  "additional_attributes_raw": {
+    "original_finish_term_manufacturer": "Satin Stainless Steel (SS)",
+    "manufacturer_specific_notes": "Easy Red/Green function setting under faceplate. 15mm stainless steel reversible latch bolt with deadlatching. Electric strike compatible. Supplied with Selector 'V' cam.",
+    "warranty_details_text_from_manufacturer": "25 Years Mechanical Warranty"
+  },
+
+  "dimensions_overall_package": null,
+  "visibility_scope": {
+    "show_on_client_portal": true,
+    "available_for_quote_generation": true,
+    "internal_use_only": false
+  },
+
+  "metadata": {
+    "last_updated": null,
+    "created_date": null,
+    "version": 1,
+    "internal_notes": "Populated for Lockwood 3772SS (60mm backset, Universal/Escape function capable). Confirm other available finishes for the 3772 base model to create separate SKUs if needed."
+  }
+}

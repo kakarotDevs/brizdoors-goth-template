@@ -1,0 +1,13 @@
+{
+  "product_code": "DOOR-SCMDF-LEG01-ENT",
+  "name": "Solid Core MDF Entrance Door with Legge Lock",
+  "material": "Solid Core (MDF)",
+  "thickness_options": [ { "value": 35, "unit": "mm" }, { "value": 40, "unit": "mm" }, { "value": 45, "unit": "mm" } ],
+  "hardware_refs": [
+    { "component_type": "Entrance Lock", "item_code": "HW-LEGGE-ENT-001" }
+  ],
+  "finish_options": ["LWD_MF_SC", "LWD_MF_CP", "LWD_MF_PB"],
+  "additional_specifications": {},
+  "last_updated": "2023-10-01T12:00:00Z"
+}
+

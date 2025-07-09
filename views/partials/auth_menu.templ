@@ -1,6 +1,6 @@
 package partials
 
-templ AuthMenu(name string) {
+templ AuthMenu(name string, picture string, email string) {
 	<div class="relative" id="auth-menu-container">
 		<button
 			type="button"
@@ -14,7 +14,9 @@ templ AuthMenu(name string) {
 		>
 			<!-- User Avatar Circle with Initial -->
 			<div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-semibold mr-3">
-				if len(name) > 0 {
+				if len(picture) > 0 {
+					<img src={picture} alt="avatar" class="w-full h-full rounded-full object-cover" />
+				} else if len(name) > 0 {
 					{ string([]rune(name)[0]) }
 				} else {
 					U
@@ -39,7 +41,7 @@ templ AuthMenu(name string) {
 }
 
 // AuthMenuOpen shows the dropdown in open state
-templ AuthMenuOpen(name string) {
+templ AuthMenuOpen(name string, picture string, email string) {
 	<div class="relative" id="auth-menu-container">
 		<button
 			type="button"
@@ -54,7 +56,9 @@ templ AuthMenuOpen(name string) {
 		>
 			<!-- User Avatar Circle with Initial -->
 			<div class="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-xs font-semibold mr-3">
-				if len(name) > 0 {
+				if len(picture) > 0 {
+					<img src={picture} alt="avatar" class="w-full h-full rounded-full object-cover" />
+				} else if len(name) > 0 {
 					{ string([]rune(name)[0]) }
 				} else {
 					U
@@ -85,7 +89,7 @@ templ AuthMenuOpen(name string) {
 			hx-trigger="click from:body"
 			hx-include="this"
 		>
-			@AuthMenuContent(name)
+@AuthMenuContent(name, picture, email)
 		</div>
 		
 		<!-- Click outside handler -->
@@ -99,13 +103,15 @@ templ AuthMenuOpen(name string) {
 	</div>
 }
 
-templ AuthMenuContent(name string) {
+templ AuthMenuContent(name string, picture string, email string) {
 	<!-- User Info Header -->
 	<div class="px-4 py-4 border-b border-bg-light/20">
 		<div class="flex items-center space-x-3">
 			<!-- Larger Avatar -->
 			<div class="w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center text-base font-semibold">
-				if len(name) > 0 {
+				if len(picture) > 0 {
+					<img src={picture} alt="avatar" class="w-12 h-12 rounded-full object-cover" />
+				} else if len(name) > 0 {
 					{ string([]rune(name)[0]) }
 				} else {
 					U
@@ -117,6 +123,10 @@ templ AuthMenuContent(name string) {
 						{name}
 					} else {
 						User
+					}
+					// Show email
+					if len(email) > 0 {
+						<p class="text-xs text-text-muted truncate">{email}</p>
 					}
 				</p>
 				<p class="text-sm text-text-muted truncate">Online</p>

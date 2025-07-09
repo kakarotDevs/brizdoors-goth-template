@@ -1,0 +1,335 @@
+[
+  {
+    "hardware_item_code": "LWD-P1901-L70-SC",
+    "product_type": "plate_furniture",
+    "name": "Lockwood 1800 Series Plate Furniture, Passage Set (1901), Lever 70, Satin Chrome",
+    "description": "Lockwood 1800 Series square end plate furniture. Passage set suitable for non-locking internal doors. Features Lever 70 (AS1428.1 compliant). Solid brass construction. Designed and assembled in Australia.",
+    "status": "active",
+    "manufacturer_details": {
+      "name": "Lockwood Assa Abloy",
+      "part_code": "1901/70SC",
+      "article_number": null,
+      "series": "1800 Series Square End Plate",
+      "ordering_method": null,
+      "order_reference_code_format": "PlateFunctionNo/LeverNo/Handing/Finish"
+    },
+    "available_finish_codes": [
+      "LWD_MF_SC",
+      "LWD_MF_CP",
+      "LWD_MF_PB",
+      "PC_SELECT_COLOR",
+      "LWD_MF_SB"
+    ],
+    "selected_finish_code": "LWD_MF_SC",
+    "backset_options": [],
+    "selected_backset": null,
+    "requires_handing": true,
+    "handing": null,
+    "standardized_function_description": "Passage Set - Non-locking, for general internal doors.",
+    "is_as1428_compliant": true,
+
+    "certifications_and_standards": [
+      {
+        "code": "AS1905.1:2005 Part 1",
+        "name": "Fire Resistant Doorsets",
+        "description_of_standard": "Australian Standard for components used in the protection of openings in fire-resistant walls.",
+        "product_compliance_notes": "Successfully tested up to 4 hours with a fire-rated Lockwood mortice lock on fire door assemblies (depending on type of doorset)."
+      },
+      {
+        "code": "AS4145.2-2008 SL8",
+        "name": "Locksets and hardware for doors and windows - Security",
+        "description_of_standard": "Australian Standard specifying security requirements.",
+        "product_compliance_notes": "This 1800 series door furniture, when tested with a Selector 3772 mortice lock and Abloy Protec2 CY504 cylinder, conforms to Level SL8 (Security Level 8 - Highest rating)."
+      },
+      {
+        "code": "AS4145.2-2008 D8",
+        "name": "Locksets and hardware for doors and windows - Durability",
+        "description_of_standard": "Australian Standard specifying durability requirements (D8 = 500,000 cycles).",
+        "product_compliance_notes": "1800 series lever sets conform to Level D8 (Durability - Extreme)."
+      },
+      {
+        "code": "AS4145.2-2008 C10 (SC Finish)",
+        "name": "Locksets and hardware for doors and windows - Corrosion Resistance",
+        "description_of_standard": "Australian Standard specifying corrosion resistance (C10 = 1000 hours Neutral Salt Spray).",
+        "product_compliance_notes": "1800 series in Brushed Satin Chrome (SC) finish conforms to Level C10 (Corrosion Resistance - Very Extreme)."
+      },
+      {
+        "code": "AS1428.1-2009",
+        "name": "Design for access and mobility - General requirements for access - New building work",
+        "description_of_standard": "Specifies design requirements for new building work to provide access for people with disabilities.",
+        "product_compliance_notes": "Levers and turns included in the 1800 series (such as Lever 70) meet the requirements of this standard."
+      }
+    ],
+    "tags": [
+      "plate_furniture",
+      "passage_set",
+      "lockwood",
+      "1800_series",
+      "lever_70",
+      "internal",
+      "fire_rated_compatible",
+      "high_security_capable",
+      "high_durability",
+      "AS1428.1_compliant_lever"
+    ],
+    "image_url": "https://eshop.assaabloyopeningsolutions.com.au/media/catalog/product/cache/2c82f4e8f9a160a65a83715881ae9b10/1/9/1901_70SC_3.jpg",
+    "material_main": "Solid Brass",
+    "plate_furniture_details": {
+      "plate_series_or_style_code": "1800",
+      "plate_designation_or_function_code": "1901",
+      "plate_description": "Square End Plate, Passage Function",
+      "handle_style_code": "70"
+    },
+    "ordering_info": {
+      "requires_combination_with_other_parts": true,
+      "example_order_string_manufacturer": "1901/70SC/LH (example with handing)",
+      "notes_for_ordering": "Specify handing (Left Hand 'L' or Right Hand 'R'). Passage set. Used with Lockwood 3570/3770 series mortice locks or latches. Lever 70 is AS1428.1 compliant."
+    },
+    "compatibility": {
+      "compatible_door_series_internal": [],
+      "compatible_hardware_item_codes_internal": [
+        "LWD-SEL3772-60-SS",
+        "<your_code_for_Abloy_Protec2_CY504_cylinder>"
+      ]
+    },
+    "additional_attributes_raw": {
+      "original_finish_term_manufacturer": "Satin Chrome (SC)",
+      "manufacturer_specific_notes": "Solid brass construction. Concealed fixing. Designed, assembled and customised in Australia.",
+      "warranty_details_text_from_manufacturer": null
+    },
+    "dimensions_overall_package": null,
+    "visibility_scope": {
+      "show_on_client_portal": true,
+      "available_for_quote_generation": true,
+      "internal_use_only": false
+    },
+    "metadata": {
+      "last_updated": "2025-06-05T13:40:00Z",
+      "created_date": "2025-06-05T13:40:00Z",
+      "version": 1,
+      "internal_notes": "Updated certifications for Lockwood 1800 Series, 1901 Passage function with Lever 70, SC finish, based on brochure information. Handing needs to be specified for orderable SKUs."
+    }
+  },
+  {
+    "hardware_item_code": "LWD-P1904-L70-SC",
+    "product_type": "plate_furniture",
+    "name": "Lockwood 1800 Series Plate Furniture, Privacy Set (1904), Lever 70, Satin Chrome",
+    "description": "Lockwood 1800 Series square end plate furniture. Privacy set with turn-snib & emergency release, suitable for bathrooms/bedrooms. Features Lever 70 (AS1428.1 compliant). Solid brass construction. Designed and assembled in Australia.",
+    "status": "active",
+    "manufacturer_details": {
+      "name": "Lockwood Assa Abloy",
+      "part_code": "1904/70SC",
+      "article_number": null,
+      "series": "1800 Series Square End Plate",
+      "ordering_method": null,
+      "order_reference_code_format": "PlateFunctionNo/LeverNo/Handing/Finish"
+    },
+    "available_finish_codes": [
+      "LWD_MF_SC",
+      "LWD_MF_CP",
+      "LWD_MF_PB",
+      "PC_SELECT_COLOR",
+      "LWD_MF_SB"
+    ],
+    "selected_finish_code": "LWD_MF_SC",
+    "backset_options": [],
+    "selected_backset": null,
+    "requires_handing": true,
+    "handing": null,
+    "standardized_function_description": "Privacy Set - Lockable with internal turn-snib, features an external emergency release. Typically for bathrooms or bedrooms.",
+    "is_as1428_compliant": true,
+
+    "certifications_and_standards": [
+      {
+        "code": "AS1905.1:2005 Part 1",
+        "name": "Fire Resistant Doorsets",
+        "description_of_standard": "Australian Standard for components used in the protection of openings in fire-resistant walls.",
+        "product_compliance_notes": "Successfully tested up to 4 hours with a fire-rated Lockwood mortice lock on fire door assemblies (depending on type of doorset)."
+      },
+      {
+        "code": "AS4145.2-2008 SL8",
+        "name": "Locksets and hardware for doors and windows - Security",
+        "description_of_standard": "Australian Standard specifying security requirements.",
+        "product_compliance_notes": "The 1800 series door furniture, when part of a system with a Selector 3772 mortice lock and Abloy Protec2 CY504 cylinder, conforms to Level SL8. This privacy set would typically be used with a privacy mortice lock, not usually part of an SL8 rated external security set."
+      },
+      {
+        "code": "AS4145.2-2008 D8",
+        "name": "Locksets and hardware for doors and windows - Durability",
+        "description_of_standard": "Australian Standard specifying durability requirements (D8 = 500,000 cycles).",
+        "product_compliance_notes": "1800 series lever sets conform to Level D8 (Durability - Extreme)."
+      },
+      {
+        "code": "AS4145.2-2008 C10 (SC Finish)",
+        "name": "Locksets and hardware for doors and windows - Corrosion Resistance",
+        "description_of_standard": "Australian Standard specifying corrosion resistance (C10 = 1000 hours Neutral Salt Spray).",
+        "product_compliance_notes": "1800 series in Brushed Satin Chrome (SC) finish conforms to Level C10 (Corrosion Resistance - Very Extreme)."
+      },
+      {
+        "code": "AS1428.1-2009",
+        "name": "Design for access and mobility - General requirements for access - New building work",
+        "description_of_standard": "Specifies design requirements for new building work to provide access for people with disabilities.",
+        "product_compliance_notes": "Levers and turns (like the one on this privacy set) included in the 1800 series meet the requirements of this standard. Ensure turn snib is AS1428.1 compliant design if specific compliance is claimed for the whole set."
+      }
+    ],
+    "tags": [
+      "plate_furniture",
+      "privacy_set",
+      "lockwood",
+      "1800_series",
+      "lever_70",
+      "internal",
+      "fire_rated_compatible",
+      "high_durability",
+      "AS1428.1_compliant_components"
+    ],
+    "image_url": "[https://eshop.assaabloyopeningsolutions.com.au/media/catalog/product/cache/2c82f4e8f9a160a65a83715881ae9b10/1/9/1904_70SC_2.jpg](https://eshop.assaabloyopeningsolutions.com.au/media/catalog/product/cache/2c82f4e8f9a160a65a83715881ae9b10/1/9/1904_70SC_2.jpg)",
+    "material_main": "Solid Brass",
+    "plate_furniture_details": {
+      "plate_series_or_style_code": "1800",
+      "plate_designation_or_function_code": "1904",
+      "plate_description": "Square End Plate, Privacy Function (Turn-snib inside, emergency release outside)",
+      "handle_style_code": "70",
+      "features": ["Turn snib", "Emergency release"]
+    },
+    "ordering_info": {
+      "requires_combination_with_other_parts": true,
+      "example_order_string_manufacturer": "1904/70SC/LH",
+      "notes_for_ordering": "Specify handing (Left Hand 'L' or Right Hand 'R') due to turn-snib orientation. Used with Lockwood privacy mortice locks (e.g., 3579) or privacy tubular latches (e.g., 530 series with privacy bolt)."
+    },
+    "compatibility": {
+      "compatible_door_series_internal": [],
+      "compatible_hardware_item_codes_internal": [
+        "<your_code_for_Lockwood_3579_Privacy_Mortice>",
+        "<your_code_for_Lockwood_530_Privacy_Latch>"
+      ]
+    },
+    "additional_attributes_raw": {
+      "original_finish_term_manufacturer": "Satin Chrome (SC)",
+      "manufacturer_specific_notes": "Solid brass construction. Concealed fixing. Includes turn snib and emergency release coin slot. Designed, assembled and customised in Australia."
+    },
+    "dimensions_overall_package": null,
+    "visibility_scope": {
+      "show_on_client_portal": true,
+      "available_for_quote_generation": true,
+      "internal_use_only": false
+    },
+    "metadata": {
+      "last_updated": "2025-06-05T13:50:00Z",
+      "created_date": "2025-06-05T13:50:00Z",
+      "version": 1,
+      "internal_notes": "Lockwood 1800 Series, 1904 Privacy function with Lever 70, SC finish. Updated certifications based on brochure. Handing is critical for this privacy set."
+    }
+  },
+  {
+    "hardware_item_code": "LWD-P1905-L70-SC",
+    "product_type": "plate_furniture",
+    "name": "Lockwood 1800 Series Plate Furniture, Entrance Set (1905), Lever 70, Satin Chrome",
+    "description": "Lockwood 1800 Series square end plate furniture. Entrance/Office set typically used with a keyed mortice lock (e.g., Lockwood 3772 Selector Series) and cylinder. Features Lever 70 (AS1428.1 compliant). Solid brass construction. Designed and assembled in Australia.",
+    "status": "active",
+    "manufacturer_details": {
+      "name": "Lockwood Assa Abloy",
+      "part_code": "1905/70SC",
+      "article_number": null,
+      "series": "1800 Series Square End Plate",
+      "ordering_method": null,
+      "order_reference_code_format": "PlateFunctionNo/LeverNo/Handing/Finish"
+    },
+    "available_finish_codes": [
+      "LWD_MF_SC",
+      "LWD_MF_CP",
+      "LWD_MF_PB",
+      "PC_SELECT_COLOR",
+      "LWD_MF_SB"
+    ],
+    "selected_finish_code": "LWD_MF_SC",
+    "backset_options": [],
+    "selected_backset": null,
+    "requires_handing": true,
+    "handing": null,
+    "standardized_function_description": "Entrance/Office Set - For use with keyed mortice locks (cylinder controls locking/unlocking from outside, potentially turn-snib inside depending on mortice lock function). Provides lever operation.",
+    "is_as1428_compliant": true,
+
+    "certifications_and_standards": [
+      {
+        "code": "AS1905.1:2005 Part 1",
+        "name": "Fire Resistant Doorsets",
+        "description_of_standard": "Australian Standard for components used in the protection of openings in fire-resistant walls.",
+        "product_compliance_notes": "Successfully tested up to 4 hours with a fire-rated Lockwood mortice lock on fire door assemblies (depending on type of doorset)."
+      },
+      {
+        "code": "AS4145.2-2008 SL8",
+        "name": "Locksets and hardware for doors and windows - Security",
+        "description_of_standard": "Australian Standard specifying security requirements.",
+        "product_compliance_notes": "This 1800 series door furniture, when installed as part of a complete doorset with a Lockwood Selector 3772 mortice lock and an Abloy Protec2 CY504 cylinder (or equivalent high-security cylinder), conforms to Level SL8 (Security Level 8 - Highest rating)."
+      },
+      {
+        "code": "AS4145.2-2008 D8",
+        "name": "Locksets and hardware for doors and windows - Durability",
+        "description_of_standard": "Australian Standard specifying durability requirements (D8 = 500,000 cycles).",
+        "product_compliance_notes": "1800 series lever sets conform to Level D8 (Durability - Extreme)."
+      },
+      {
+        "code": "AS4145.2-2008 C10 (SC Finish)",
+        "name": "Locksets and hardware for doors and windows - Corrosion Resistance",
+        "description_of_standard": "Australian Standard specifying corrosion resistance (C10 = 1000 hours Neutral Salt Spray).",
+        "product_compliance_notes": "1800 series in Brushed Satin Chrome (SC) finish conforms to Level C10 (Corrosion Resistance - Very Extreme)."
+      },
+      {
+        "code": "AS1428.1-2009",
+        "name": "Design for access and mobility - General requirements for access - New building work",
+        "description_of_standard": "Specifies design requirements for new building work to provide access for people with disabilities.",
+        "product_compliance_notes": "Levers (like Lever 70) included in the 1800 series meet the requirements of this standard. Ensure overall assembly and installation also comply."
+      }
+    ],
+    "tags": [
+      "plate_furniture",
+      "entrance_set",
+      "lockwood",
+      "1800_series",
+      "lever_70",
+      "keyed_function_compatible",
+      "fire_rated_compatible",
+      "high_security_rated_system",
+      "high_durability",
+      "AS1428.1_compliant_lever"
+    ],
+    "image_url": "[https://eshop.assaabloyopeningsolutions.com.au/media/catalog/product/cache/2c82f4e8f9a160a65a83715881ae9b10/S/C/SC70-1905_Large_5.jpg](https://eshop.assaabloyopeningsolutions.com.au/media/catalog/product/cache/2c82f4e8f9a160a65a83715881ae9b10/S/C/SC70-1905_Large_5.jpg)",
+    "material_main": "Solid Brass",
+    "plate_furniture_details": {
+      "plate_series_or_style_code": "1800",
+      "plate_designation_or_function_code": "1905",
+      "plate_description": "Square End Plate, Entrance/Office Function (typically for keyed cylinder mortice locks, may have cylinder hole and/or turn-snib hole depending on specific lock function)",
+      "handle_style_code": "70",
+      "features": ["Compatible with keyed mortice locks", "Lever operation"]
+    },
+    "ordering_info": {
+      "requires_combination_with_other_parts": true,
+      "example_order_string_manufacturer": "1905/70SC/LH",
+      "notes_for_ordering": "Specify handing (Left Hand 'L' or Right Hand 'R'). Designed for use with Lockwood keyed mortice locks like the Selector 3770 Series (e.g., 3772). Cylinder and mortice lock ordered separately."
+    },
+    "compatibility": {
+      "compatible_door_series_internal": [],
+      "compatible_hardware_item_codes_internal": [
+        "LWD-SEL3772-60-SS",
+        "<your_code_for_Abloy_Protec2_CY504_cylinder>",
+        "<your_code_for_Lockwood_570_Cylinder>"
+      ]
+    },
+    "additional_attributes_raw": {
+      "original_finish_term_manufacturer": "Satin Chrome (SC)",
+      "manufacturer_specific_notes": "Solid brass construction. Concealed fixing. Designed, assembled and customised in Australia. Plate may have provisions for cylinder and/or turn-snib depending on the specific mortice lock function it's paired with."
+    },
+    "dimensions_overall_package": null,
+    "visibility_scope": {
+      "show_on_client_portal": true,
+      "available_for_quote_generation": true,
+      "internal_use_only": false
+    },
+    "metadata": {
+      "last_updated": "2025-06-05T13:55:00Z",
+      "created_date": "2025-06-05T13:55:00Z",
+      "version": 1,
+      "internal_notes": "Lockwood 1800 Series, 1905 Entrance/Office function with Lever 70, SC finish. Updated certifications based on brochure. Handing critical. SL8 security rating is for the system including specified lock and cylinder."
+    }
+  }
+]

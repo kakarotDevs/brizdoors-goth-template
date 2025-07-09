@@ -1,0 +1,210 @@
+{
+  "hardware_item_code": "",
+  "product_type": "",
+  "name": "",
+  "description": "",
+
+  "status": "active",
+
+  "manufacturer_details": {
+    "name": "",
+    "part_code": null,
+    "article_number": null,
+    "series": null,
+    "ordering_method": "",
+    "order_reference_code_format": ""
+  },
+
+  "finish_options": [],
+  "selected_finish_code": null,
+
+  "backset_options": [],
+  "selected_backset": null,
+
+  "requires_handing": null,
+  "handing": null,
+
+  "standardized_function_description": "",
+  "is_as1428_compliant": null,
+  "certifications": [],
+  "tags": [],
+  "image_url": "",
+  "material_main": null,
+
+  "lever_on_rose_details": {
+    "lever_style_code": "",
+    "rose_style_code": "",
+    "manufacturer_rose_no": null,
+    "rose_type": null
+  },
+
+  "plate_furniture_details": {
+    "plate_series_or_style_code": "",
+    "plate_function_code_manufacturer": "",
+    "handle_style_code": ""
+  },
+
+  "mortice_lock_details": {
+    "manufacturer_function_code": "",
+    "manufacturer_lock_function_term": "",
+    "compatible_door_material_code_manufacturer": "",
+    "intrinsic_backset": null,
+    "case_dimensions_mm": {
+      "height": { "value": null, "unit": "mm" },
+      "depth": { "value": null, "unit": "mm" },
+      "thickness": { "value": null, "unit": "mm" }
+    },
+    "faceplate_dimensions_mm": {
+      "length": { "value": null, "unit": "mm" },
+      "width": { "value": null, "unit": "mm" }
+    },
+    "strike_plate_included": null,
+    "spindle_size_mm": null,
+    "cylinder_type_compatible": ""
+  },
+
+  "ordering_info": {
+    "requires_combination_with_other_parts": null,
+    "example_order_string_manufacturer": "",
+    "notes_for_ordering": ""
+  },
+
+  "compatibility": {
+    "compatible_door_series_internal": [],
+    "compatible_hardware_item_codes_internal": []
+  },
+
+  "additional_attributes_raw": {
+    "original_finish_term_manufacturer": "",
+    "original_function_term_manufacturer": "",
+    "brochure_page_no": null,
+    "manufacturer_specific_notes": ""
+  },
+
+  "dimensions_overall_package": {
+    "width": { "value": null, "unit": "mm" },
+    "height": { "value": null, "unit": "mm" },
+    "depth": { "value": null, "unit": "mm" },
+    "weight": { "value": null, "unit": "g" }
+  },
+
+  "visibility_scope": {
+    "show_on_client_portal": true,
+    "available_for_quote_generation": true,
+    "internal_use_only": false
+  },
+
+  "metadata": {
+    "last_updated": null,
+    "created_date": null,
+    "version": 1,
+    "internal_notes": ""
+  }
+}
+
+// attempt to create a more structured and AI-friendly JSON schema for hardware items
+// this schema is designed to be comprehensive, yet flexible enough for AI applications
+// it includes standardized fields, product type-specific details, and metadata for AI processing
+// the goal is to allow AI to easily filter, understand, and generate responses based on this data
+// // the structure is designed to be extensible, allowing for future additions without breaking existing functionality
+// // the use of enums, arrays, and objects allows for clear definitions and relationships between fields
+// // the schema is designed to be used in a MongoDB-like database, with BSON Date types for timestamps
+// // the AI perspective is considered throughout, ensuring that the data is structured in a way that facilitates natural language understanding and generation
+{
+  "hardware_item_code": "", // String: YOUR unique internal SKU/identifier.
+                            // AI Perspective: Crucial for exact identification and linking.
+  "product_type": "",       // String: Your standardized type. Enum examples: "lever_on_rose", "plate_furniture", "mortice_lock", "rose_only", "cylinder", "door_closer"
+                            // AI Perspective: Essential for the AI to know which subsequent detail fields (e.g., 'lever_on_rose_details') are relevant and what kind of item it's dealing with. Used for filtering and conditional logic.
+  "name": "",               // String: Concise, human-readable name.
+                            // AI Perspective: Very important for Natural Language Generation (NLG) when presenting options to users, and for Natural Language Understanding (NLU) if users mention it. Also good for keyword-based retrieval.
+  "description": "",        // String: Fuller description.
+                            // AI Perspective: Prime source for semantic understanding, keyword extraction, and providing detailed answers. Excellent for Retrieval Augmented Generation (RAG).
+
+  "status": "active",       // String: Lifecycle status. Enum: "active", "obsolete", "draft", "discontinued"
+                            // AI Perspective: Allows AI to filter for currently available/relevant products.
+
+  "manufacturer_details": {
+    "name": "",             // String: e.g., "Lockwood Assa Abloy"
+                            // AI Perspective: Key filter, allows AI to answer "Show me Lockwood levers."
+    "part_code": null,      // String: Manufacturer's specific part code (alphanumeric).
+                            // AI Perspective: Useful for cross-referencing with manufacturer data or if a user provides this code.
+    "article_number": null, // String: Manufacturer's article number (alphanumeric).
+                            // AI Perspective: Similar to part_code.
+    "series": null,         // String: Manufacturer's series name or code (alphanumeric).
+                            // AI Perspective: Good for filtering and for understanding product lines/compatibility.
+    "ordering_method": "",  // String: How this is typically ordered.
+    "order_reference_code_format": "" // String: Manufacturer's typical ordering string format.
+                            // AI Perspective: These last two are more for operational logic that might support an AI agent placing orders or providing ordering instructions.
+  },
+
+  // --- Core Standardized Attributes & Options ---
+  "finish_options": [],     // Array of YOUR standardized finish codes. e.g., ["SC", "CP", "PB"]
+                            // AI Perspective: Provides a clear list of choices. The AI would likely need to look up these codes in your 'finishes' collection to get descriptive names for the user.
+  "selected_finish_code": null, // String: The specific finish code if this 'hardware_item_code' represents an item with a pre-selected finish.
+                            // AI Perspective: Clearly defines the finish for this specific SKU.
+
+  "backset_options": [],    // Array of Objects: [{ "value": Number, "unit": "String" }] - All *available/selectable* backsets.
+                            // AI Perspective: Clearly defines dimensional options. AI can parse value and unit.
+  "selected_backset": null, // Object: { "value": Number, "unit": "String" } - if SKU has a specific backset.
+                            // AI Perspective: Clearly defines the backset for this specific SKU.
+
+  "requires_handing": null, // Boolean
+  "handing": null,          // String: Enum: "L", "R", "U" (Universal).
+                            // AI Perspective: Both are direct and easy for AI to use for filtering or presenting options.
+
+  "standardized_function_description": "", // String: Your standardized functional description.
+                            // AI Perspective: Very important for understanding *what the product does*. Allows comparison across manufacturers.
+  "is_as1428_compliant": null, // Boolean
+                            // AI Perspective: Direct boolean flag, easy to filter and use for compliance-related queries.
+  "certifications_and_standards": [ // Array of Objects, as discussed, containing code, name, description, product_compliance_notes.
+    // { "code": "AS1428.1-2021", "name": "...", "description_of_standard": "...", "product_compliance_notes": "..." }
+  ],                            // AI Perspective: Extremely rich source for answering detailed compliance or suitability questions. The structure allows AI to target specific parts of the standard info.
+
+  "tags": [],               // Array of Strings
+                            // AI Perspective: Excellent for keyword matching, filtering, and identifying related concepts.
+  "image_url": "",          // String
+  "material_main": null,    // String
+
+  // --- Product-Type-Specific Detail Objects (AI uses 'product_type' to know which object here is relevant) ---
+  "lever_on_rose_details": { // Present if product_type is "lever_on_rose"
+    "lever_style_code": "",
+    "rose_style_code": "",
+    "manufacturer_rose_no": null,
+    "rose_type": null         // String: Enum: "interior", "exterior", "universal"
+  },
+
+  "plate_furniture_details": { // Present if product_type is "plate_furniture"
+    "plate_series_or_style_code": "",
+    "plate_function_code_manufacturer": "",
+    "handle_style_code": ""
+  },
+
+  "mortice_lock_details": { // Present if product_type is "mortice_lock"
+    "manufacturer_function_code": "",
+    "manufacturer_lock_function_term": "",
+    "compatible_door_material_code_manufacturer": "",
+    "intrinsic_backset": { "value": null, "unit": "mm" }, // Fixed backset of the lock body itself
+    "case_dimensions_mm": { "height": {"value": null, "unit": "mm"}, "depth": {"value": null, "unit": "mm"}, "thickness": {"value": null, "unit": "mm"} },
+    "faceplate_dimensions_mm": { "length": {"value": null, "unit": "mm"}, "width": {"value": null, "unit": "mm"} },
+    "strike_plate_included": null,
+    "spindle_size_mm": null,
+    "cylinder_type_compatible": ""
+  },
+  // AI Perspective: This polymorphic structure (where only one of the above *_details objects is filled based on product_type) is efficient. The AI, knowing the product_type, can specifically target the relevant fields within the correct sub-object, ignoring others. This prevents a massive flat list of mostly null fields.
+
+  "ordering_info": { /* ... */ }, // AI Perspective: Useful if AI assists with order processing or explains how to order.
+  "compatibility": { /* ... */ }, // AI Perspective: Very useful for recommendations and validation (e.g., "Will this handle fit my door series?").
+
+  "additional_attributes_raw": { /* ... */ }, // AI Perspective: A good place for less structured or manufacturer-verbatim data that an LLM might still parse if needed for very specific queries, but primary information should be in the structured fields.
+
+  "dimensions_overall_package": { /* ... */ }, // AI Perspective: Useful for logistics, less so for feature-based understanding unless size is a feature.
+  "visibility_scope": { /* ... */ },           // AI Perspective: AI would respect these flags when deciding what to show or recommend to different users/contexts.
+
+  "metadata": {
+    "last_updated": null,      // BSON Date
+    "created_date": null,      // BSON Date
+                               // AI Perspective: 'last_updated' can be useful for the AI to mention if data might be recent or older.
+    "version": 1,
+    "internal_notes": ""
+  }
+}

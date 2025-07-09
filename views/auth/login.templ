@@ -1,0 +1,39 @@
+package auth
+
+import "github.com/kakarotDevs/brizdoors-goth-template/views/partials"
+
+templ LoginForm(errorMsg string) {
+	<form id="login-form" method="POST" action="/login" class="space-y-4 mb-8">
+		@partials.Notification(errorMsg, true)
+
+		<div class="relative">
+			<input
+				type="email"
+				id="email"
+				name="email"
+				required
+				placeholder=" "
+				class="peer w-full h-14 bg-bg-light text-text placeholder-transparent rounded-lg px-4 pt-6 pb-2 border-2 border-bg-light/50 focus:outline-none focus:border-blue-500 transition-all duration-200 caret-caret"
+			/>
+			<label for="email" class="absolute left-4 top-2 text-text-muted text-xs pointer-events-none bg-bg-light px-1 rounded transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:bg-transparent peer-placeholder-shown:-translate-y-1/2 peer-focus:top-2 peer-focus:text-xs peer-focus:bg-bg-light peer-focus:translate-y-0 peer-valid:top-2 peer-valid:text-xs peer-valid:bg-bg-light peer-valid:translate-y-0">Email Address</label>
+		</div>
+		<div class="relative">
+			<input
+				type="password"
+				id="password"
+				name="password"
+				required
+				autocomplete="new-password"
+				placeholder=" "
+				class="peer w-full h-14 bg-bg-light text-text placeholder-transparent rounded-lg px-4 pt-6 pb-2 border-2 border-bg-light/50 focus:outline-none focus:border-blue-500 transition-all duration-200 caret-caret"
+			/>
+			<label for="password" class="absolute left-4 top-2 text-text-muted text-xs pointer-events-none bg-bg-light px-1 rounded transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:bg-transparent peer-placeholder-shown:-translate-y-1/2 peer-focus:top-2 peer-focus:text-xs peer-focus:bg-bg-light peer-focus:translate-y-0 peer-valid:top-2 peer-valid:text-xs peer-valid:bg-bg-light peer-valid:translate-y-0">Password</label>
+		</div>
+		<button
+			type="submit"
+			class="w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 active:scale-[0.98] text-white font-semibold px-4 py-3 rounded-md transition-all duration-200 focus:outline-none"
+		>
+			Sign In
+		</button>
+	</form>
+}

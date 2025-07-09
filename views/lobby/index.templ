@@ -4,7 +4,7 @@ import "github.com/kakarotDevs/brizdoors-goth-template/layouts"
 
 templ Index(userName string, isDarkMode bool) {
 	@layouts.Base("Lobby", isDarkMode) {
-		<div class="w-full max-w-7xl mx-auto px-6 py-8">
+		<section class="w-full max-w-7xl mx-auto px-6 py-8">
 			<header class="flex justify-between items-center mb-8">
 				<h1 class="text-3xl font-bold text-text">Welcome, {userName}</h1>
 			</header>
@@ -13,7 +13,7 @@ templ Index(userName string, isDarkMode bool) {
 			<div class="bg-bg-light rounded-lg shadow-lg p-6 border border-bg-light border-opacity-30">
 				<p class="text-text-muted">This is your lobby. You can manage orders, account, and settings from here.</p>
 			</div>
-		</div>
+		</section>
 	}
 }
 

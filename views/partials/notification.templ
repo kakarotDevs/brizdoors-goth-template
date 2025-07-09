@@ -1,0 +1,11 @@
+package partials
+
+templ Notification(message string, isError bool) {
+    if message != "" {
+        if isError {
+            <div class="my-4 p-3 rounded bg-red-500/10 text-red-600 border border-red-300">{message}</div>
+        } else {
+            <div class="my-4 p-3 rounded bg-green-500/10 text-green-600 border border-green-300">{message}</div>
+        }
+    }
+}

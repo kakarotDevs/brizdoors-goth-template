@@ -13,8 +13,15 @@ run: build
 	@./bin/app
 
 # Development mode with hot reload
+migrate-up:
+	migrate -database "postgres://fly-user:0jr1SDsVIFst4q3b7gyWty7b@127.0.0.1:16380/fly-db?sslmode=disable" -path ./migrations up
+
 dev:
 	@echo "Starting development environment..."
+	@echo "--------------------------------------------------------------"
+	@echo "You must run: 'fly mpg proxy, and select brizdoors as th eorganization and then dev-b as the cluster ' in another terminal before running make dev."
+	@echo "DEV_DATABASE_URL for local dev should change when in production"
+	@echo "--------------------------------------------------------------"
 	npx concurrently \
 		"npx tailwindcss -i views/css/app.css -o public/styles.css --watch" \
 		"templ generate --watch --proxy=http://localhost:3000" \

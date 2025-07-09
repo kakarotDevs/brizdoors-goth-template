@@ -1,79 +1,110 @@
 package models
 
 import (
+	"context"
+	"database/sql"
 	"errors"
-	"sync"
 	"time"
+
+	"github.com/kakarotDevs/brizdoors-goth-template/utils"
+	"github.com/uptrace/bun"
 )
 
 type User struct {
-	ID        string // usually UUID or Google sub
-	Name      string
-	Email     string
+	ID        string `bun:",pk,type:uuid,default:gen_random_uuid()"`
+	GoogleID  string `bun:"google_id,unique,nullzero"`
+	FirstName string `bun:",nullzero"`
+	LastName  string `bun:",nullzero"`
+	Role      string `bun:",notnull,default:'user'"` // e.g. "user", "admin"
+	Email     string `bun:",unique,notnull"`
 	Picture   string
-	Password  string
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	Password  *string   `bun:",nullzero"`
+	CreatedAt time.Time `bun:",null,default:current_timestamp"`
+	UpdatedAt time.Time `bun:",null,default:current_timestamp"`
 }
 
 var (
-	userByID    = map[string]User{}
-	userByEmail = map[string]User{}
-	mu          sync.Mutex
+	ErrUserNotFound      = errors.New("user not found")
+	ErrUserAlreadyExists = errors.New("user already exists")
 )
 
-var ErrUserNotFound = errors.New("user not found")
-var ErrUserAlreadyExists = errors.New("user already exists")
-
-func CreateUser(user *User) error {
-	mu.Lock()
-	defer mu.Unlock()
-
-	if _, exists := userByEmail[user.Email]; exists {
-		return ErrUserAlreadyExists
+func GetUserByID(ctx context.Context, db bun.IDB, id string) (*User, error) {
+	user := new(User)
+	err := db.NewSelect().Model(user).Where("id = ?", id).Scan(ctx)
+	if err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return nil, ErrUserNotFound
+		}
+		return nil, err
 	}
-
-	user.CreatedAt = time.Now()
-	user.UpdatedAt = user.CreatedAt
-
-	userByID[user.ID] = *user
-	userByEmail[user.Email] = *user
-
-	return nil
+	return user, nil
 }
 
-// CreateOrUpdateUser creates or updates a user in memory.
-func CreateOrUpdateUser(user User) {
-	mu.Lock()
-	defer mu.Unlock()
+func GetUserByEmail(ctx context.Context, db bun.IDB, email string) (*User, error) {
+	user := new(User)
+	err := db.NewSelect().Model(user).Where("email = ?", email).Scan(ctx)
+	if err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return nil, ErrUserNotFound
+		}
+		return nil, err
+	}
+	return user, nil
+}
 
+func GetUserByGoogleID(ctx context.Context, db bun.IDB, googleID string) (*User, error) {
+	user := new(User)
+	err := db.NewSelect().Model(user).Where("google_id = ?", googleID).Scan(ctx)
+	if err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return nil, ErrUserNotFound
+		}
+		return nil, err
+	}
+	return user, nil
+}
+
+func CreateUser(ctx context.Context, db bun.IDB, user *User) error {
+	_, err := db.NewInsert().Model(user).Exec(ctx)
+	return err
+}
+
+func CreateOrUpdateUser(ctx context.Context, db bun.IDB, user *User) error {
 	user.UpdatedAt = time.Now()
 	if user.CreatedAt.IsZero() {
 		user.CreatedAt = user.UpdatedAt
 	}
-
-	userByID[user.ID] = user
-	userByEmail[user.Email] = user
+	_, err := db.NewInsert().Model(user).
+		On("CONFLICT (id) DO UPDATE SET name = EXCLUDED.name, email = EXCLUDED.email, picture = EXCLUDED.picture, updated_at = EXCLUDED.updated_at").
+		Exec(ctx)
+	return err
 }
 
-func GetUserByEmail(email string) (User, error) {
-	mu.Lock()
-	defer mu.Unlock()
-
-	user, ok := userByEmail[email]
-	if !ok {
-		return User{}, ErrUserNotFound
-	}
-	return user, nil
+func DeleteUser(ctx context.Context, db bun.IDB, id string) error {
+	_, err := db.NewDelete().Model((*User)(nil)).Where("id = ?", id).Exec(ctx)
+	return err
 }
 
-func GetUserByID(id string) (User, error) {
-	mu.Lock()
-	defer mu.Unlock()
-
-	user, ok := userByID[id]
-	if !ok {
-		return User{}, ErrUserNotFound
+// SetUserPassword sets a hashed password for a user
+func SetUserPassword(ctx context.Context, db bun.IDB, userID string, newPw string) error {
+	hash, err := utils.HashPassword(newPw)
+	if err != nil {
+		return err
 	}
-	return user, nil
+	_, err = db.NewUpdate().Model(&User{}).
+		Set("password = ?", hash).
+		Set("updated_at = NOW()").
+		Where("id = ?", userID).
+		Exec(ctx)
+	return err
+}
+
+// For OAuth users (or login conversion):
+func ClearUserPassword(ctx context.Context, db bun.IDB, userID string) error {
+	_, err := db.NewUpdate().Model(&User{}).
+		Set("password = NULL").
+		Set("updated_at = NOW()").
+		Where("id = ?", userID).
+		Exec(ctx)
+	return err
 }

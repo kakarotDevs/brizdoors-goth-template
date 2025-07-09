@@ -8,29 +8,51 @@ templ Base(title string, isLightMode bool) {
 	<head>
 		<meta charset="UTF-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-		<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet"/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,100..1000;1,6..12,100..1000&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
 		<link rel="icon" type="image/svg+xml" href="/public/branding/logos/dark/brizdoors-icon-dark-256.svg"/>
 		<title>{ title }</title>
 		<link rel="stylesheet" href="/public/styles.css"/>
 		<script src="https://unpkg.com/htmx.org@2.0.4" crossorigin="anonymous"></script>
 	</head>
-	<body class="antialiased font-thin font-sans bg-bg text-text min-h-screen flex flex-col transition-colors duration-200">
-
-		<header class="w-full bg-bg border-b border-bg-light/20">
+<body class="antialiased font-sans bg-bg text-text min-h-screen flex flex-col transition-colors duration-200 tracking-apple">
+		<header class="w-full bg-bg">
 			<div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
 				<div class="flex items-center justify-between w-full">
 					<!-- Logo Section -->
 					<a href="/" class="flex-shrink-0 hover:opacity-80 transition-opacity duration-200">
-						<img src="/public/branding/logos/light/brizdoors-primary-light.svg" alt="BrizDoors Logo" class="logo-light h-8 sm:h-12 lg:h-14 xl:h-16 w-auto" />
-						<img src="/public/branding/logos/dark/brizdoors-primary-dark.svg" alt="BrizDoors Logo" class="logo-dark h-8 sm:h-12 lg:h-14 xl:h-16 w-auto" />
+						<img src="/public/branding/logos/light/brizdoors-primary-light.svg" alt="BrizDoors Logo" class="logo-light h-8 sm:h-12 w-auto" />
+						<img src="/public/branding/logos/dark/brizdoors-primary-dark.svg" alt="BrizDoors Logo" class="logo-dark h-8 sm:h-12 w-auto" />
 					</a>
+
+					<!-- Main Navigation -->
+					<nav class="hidden sm:flex items-center space-x-8">
+						<a href="/about" class="text-text-muted hover:text-text transition-colors duration-200 font-semibold">About</a>
+						<a href="/contact" class="text-text-muted hover:text-text transition-colors duration-200 font-semibold">Contact</a>
+					</nav>
 
 					<!-- Navigation Actions -->
 					<div class="flex items-center gap-2 sm:gap-4">
+						<!-- Mobile Menu Button -->
+						<button
+							class="sm:hidden text-text-muted hover:text-text transition-colors duration-200 p-2"
+							hx-get="/nav/mobile"
+							hx-target="#mobile-menu"
+							hx-swap="innerHTML"
+						>
+							<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+							</svg>
+						</button>
 						@partials.ThemeToggle(isLightMode)
 						<div id="auth-menu" hx-get="/auth/menu" hx-trigger="load" hx-swap="innerHTML"></div>
 					</div>
 				</div>
+
+				<!-- Mobile Navigation Menu -->
+				<div id="mobile-menu" class="sm:hidden bg-bg-light/95 backdrop-blur-sm border-t border-bg-light/20 empty:hidden"></div>
 			</div>
 		</header>
 
@@ -58,7 +80,7 @@ templ Base(title string, isLightMode bool) {
 				</a>
 
 				<!-- LinkedIn -->
-				<a href="https://linkedin.com/company/brizdoors" class="text-text-muted hover:text-text transition-colors duration-200" title="LinkedIn" target="_blank" rel="noopener noreferrer">
+				<a href="https://www.linkedin.com/in/brizdoors/" class="text-text-muted hover:text-text transition-colors duration-200" title="LinkedIn" target="_blank" rel="noopener noreferrer">
 					<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 						<path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd"></path>
 					</svg>

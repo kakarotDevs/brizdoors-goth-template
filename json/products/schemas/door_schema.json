@@ -1,0 +1,32 @@
+{
+  "$comment": "JSON Schema for a door (or main product) object. Extend as needed.",
+  "type": "object",
+  "properties": {
+    "product_code": { "type": "string" },
+    "name": { "type": "string" },
+    "material": { "type": "string" },
+    "thickness_options": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "hardware_refs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "component_type": { "type": "string" },
+          "item_code": { "type": "string" }
+        },
+        "required": ["component_type","item_code"]
+      }
+    },
+    "finish_options": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "additional_specifications": { "type": "object" },
+    "last_updated": { "type": "string" }
+  },
+  "required": ["product_code","name","material"]
+}
+

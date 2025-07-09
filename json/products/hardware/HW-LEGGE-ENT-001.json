@@ -1,0 +1,40 @@
+{
+  "hardware_item_code": "HW-LEGGE-ENT-001",
+  "product_type": "entrance_lock",
+  "name": "Legge Entrance Lock",
+  "description": "A robust Legge lock suitable for entrance doors. Fits 35-45mm thick doors, compatible with multiple finishes.",
+  "status": "active",
+  "manufacturer_details": {
+    "name": "Legge",
+    "part_code": "ENT-001",
+    "series": "SerieX",
+    "ordering_method": "per piece",
+    "order_reference_code_format": "LEGGE-ENT-XXXX"
+  },
+  "finish_options": ["LWD_MF_SC", "LWD_MF_CP", "LWD_MF_PB"],
+  "selected_finish_code": null,
+  "backset_options": [
+    { "value": 60, "unit": "mm" },
+    { "value": 70, "unit": "mm" }
+  ],
+  "selected_backset": null,
+  "requires_handing": true,
+  "handing": null,
+  "standardized_function_description": "Entrance lock for timber/solid core doors",
+  "is_as1428_compliant": true,
+  "certifications": [
+    {"code": "AS1428.1-2021", "name": "Access for people with disabilities"}
+  ],
+  "tags": ["entrance", "lock", "legge"],
+  "image_url": "https://example.com/legge_lock.jpg",
+  "material_main": "Brass",
+  "lever_on_rose_details": {},
+  "plate_furniture_details": {},
+  "mortice_lock_details": {},
+  "ordering_info": {},
+  "compatibility": {"compatible_door_series_internal": ["SCMDF"], "compatible_hardware_item_codes_internal": []},
+  "additional_attributes_raw": {},
+  "dimensions_overall_package": {"width": {"value": 90, "unit": "mm"}, "height": { "value": 210, "unit": "mm" }, "depth": { "value": 80, "unit": "mm" }, "weight": { "value": 1100, "unit": "g"} },
+  "visibility_scope": {"show_on_client_portal": true, "available_for_quote_generation": true, "internal_use_only": false},
+  "metadata": {"last_updated": "2025-06-07T12:00:00Z", "created_date": "2025-01-03T09:30:00Z", "version": 1, "internal_notes": "Critical for entrance doors."}
+}

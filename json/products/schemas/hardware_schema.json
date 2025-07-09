@@ -1,0 +1,35 @@
+{
+  "$comment": "JSON Schema for individual hardware object in hardware/",
+  "type": "object",
+  "properties": {
+    "hardware_item_code": { "type": "string" },
+    "product_type": { "type": "string" },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "status": { "type": "string", "enum": ["active", "obsolete", "draft", "discontinued"] },
+    "manufacturer_details": { "type": "object" },
+    "finish_options": { "type": "array", "items": { "type": "string" } },
+    "selected_finish_code": { "type": ["string", "null"] },
+    "backset_options": { "type": "array", "items": { "type": "object" } },
+    "selected_backset": { "type": ["object", "null"] },
+    "requires_handing": { "type": ["boolean", "null"] },
+    "handing": { "type": ["string", "null"] },
+    "standardized_function_description": { "type": "string" },
+    "is_as1428_compliant": { "type": ["boolean", "null"] },
+    "certifications": { "type": "array", "items": { "type": "object" } },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "image_url": { "type": "string" },
+    "material_main": { "type": ["string", "null"] },
+    "lever_on_rose_details": { "type": "object" },
+    "plate_furniture_details": { "type": "object" },
+    "mortice_lock_details": { "type": "object" },
+    "ordering_info": { "type": "object" },
+    "compatibility": { "type": "object" },
+    "additional_attributes_raw": { "type": "object" },
+    "dimensions_overall_package": { "type": "object" },
+    "visibility_scope": { "type": "object" },
+    "metadata": { "type": "object" }
+  },
+  "required": ["hardware_item_code","product_type","name","description","status"]
+}
+

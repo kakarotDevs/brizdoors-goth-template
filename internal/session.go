@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/kakarotDevs/brizdoors-goth-template/db"
 	"github.com/kakarotDevs/brizdoors-goth-template/models"
 )
 
@@ -16,7 +17,7 @@ func GetUserFromSession(r *http.Request) (string, bool) {
 		return "", false
 	}
 	id := cookie.Value
-	if _, err := models.GetUserByID(id); err != nil {
+	if _, err := models.GetUserByID(r.Context(), db.DB, id); err != nil {
 		return "", false
 	}
 

@@ -1,0 +1,296 @@
+[
+  {
+    "finish_code": "LWD_MF_AC",
+    "name": "Lockwood Antique Copper",
+    "type": "Special Metal Finish",
+    "supplier_or_range": "Lockwood",
+    "manufacturer_finish_details": {
+      "code": "AC",
+      "name": "Antique Copper"
+    },
+    "color_details": {
+      "color_family": "Copper",
+      "sheen_level": "Antique/Matt"
+    },
+    "description": "An antique copper finish, providing a warm, aged appearance. May patina further over time.",
+    "notes_on_application": "Often chosen for heritage or decorative styles. May be a living finish.",
+    "sample_ordering_code_internal": "FIN-SAMPLEAC",
+    "image_url_swatch": "https://gw-assets.assaabloy.com/is/image/assaabloy/AC:1x1?wid=380&hei=380",
+    "care_instructions": "Gentle cleaning; consult manufacturer for specific care if it's a living finish.",
+    "is_special_order": true,
+    "last_updated": "2025-06-05T12:09:00Z"
+  },
+  {
+    "finish_code": "LWD_MF_AU",
+    "name": "Lockwood Architectural Bronze Unlacquered",
+    "type": "Living Finish",
+    "supplier_or_range": "Lockwood",
+    "manufacturer_finish_details": {
+      "code": "AU",
+      "name": "Architectural Bronze Unlacquered"
+    },
+    "color_details": {
+      "color_family": "Bronze",
+      "sheen_level": "Natural/Satin"
+    },
+    "description": "An unlacquered architectural bronze finish designed to patina naturally over time, developing unique character.",
+    "notes_on_application": "Appearance will change with age and exposure. Desired for its evolving look.",
+    "sample_ordering_code_internal": "FIN-SAMPLEAU",
+    "image_url_swatch": "https://gw-assets.assaabloy.com/is/image/assaabloy/AU:1x1?wid=380&hei=380",
+    "care_instructions": "Can be allowed to patina naturally or periodically cleaned/polished to restore brightness, depending on desired aesthetic.",
+    "is_special_order": true,
+    "last_updated": "2025-06-05T12:09:00Z"
+  },
+  {
+    "finish_code": "LWD_MF_ORB",
+    "name": "Lockwood Oil Rubbed Bronze",
+    "type": "Special Metal Finish",
+    "supplier_or_range": "Lockwood",
+    "manufacturer_finish_details": {
+      "code": "ORB",
+      "name": "Oil Rubbed Bronze"
+    },
+    "color_details": {
+      "color_family": "Dark Bronze/Black",
+      "sheen_level": "Matt/Lustre"
+    },
+    "description": "A dark, rich bronze finish achieved through chemical darkening, often with rubbed highlights to simulate age.",
+    "notes_on_application": "Popular for traditional and rustic styles. Finish may wear over time in high-contact areas.",
+    "sample_ordering_code_internal": "FIN-SAMPLEORB",
+    "image_url_swatch": "https://gw-assets.assaabloy.com/is/image/assaabloy/ORB:1x1?wid=380&hei=380",
+    "care_instructions": "Gentle cleaning with a soft, dry or slightly damp cloth.",
+    "is_special_order": true,
+    "last_updated": "2025-06-05T12:09:00Z"
+  },
+  {
+    "finish_code": "LWD_MF_AG",
+    "name": "Lockwood Aged Brass",
+    "type": "Living Finish",
+    "supplier_or_range": "Lockwood",
+    "manufacturer_finish_details": {
+      "code": "AG",
+      "name": "Aged Brass"
+    },
+    "color_details": {
+      "color_family": "Brass/Bronze",
+      "sheen_level": "Antique/Matt"
+    },
+    "description": "An aged brass finish, offering a warm, vintage appearance that may continue to evolve over time.",
+    "notes_on_application": "Suitable for achieving a classic, time-worn look.",
+    "sample_ordering_code_internal": "FIN-SAMPLEAG",
+    "image_url_swatch": "https://gw-assets.assaabloy.com/is/image/assaabloy/AG:1x1?wid=380&hei=380",
+    "care_instructions": "Gentle cleaning. Patina development is often a desired feature.",
+    "is_special_order": true,
+    "last_updated": "2025-06-05T12:09:00Z"
+  },
+  {
+    "finish_code": "LWD_MF_AZ",
+    "name": "Lockwood Architectural Bronze (Lacquered)",
+    "type": "Special Metal Finish",
+    "supplier_or_range": "Lockwood",
+    "manufacturer_finish_details": {
+      "code": "AZ",
+      "name": "Architectural Bronze"
+    },
+    "color_details": {
+      "color_family": "Bronze",
+      "sheen_level": "Satin/Lustre"
+    },
+    "description": "A durable architectural bronze finish, potentially lacquered for protection and consistent appearance.",
+    "notes_on_application": "Provides a sophisticated bronze look.",
+    "sample_ordering_code_internal": "FIN-SAMPLEAZ",
+    "image_url_swatch": "https://gw-assets.assaabloy.com/is/image/assaabloy/AZ:1x1?wid=380&hei=380",
+    "care_instructions": "Wipe with a soft cloth. If lacquered, avoid abrasives.",
+    "is_special_order": true,
+    "last_updated": "2025-06-05T12:09:00Z"
+  },
+  {
+    "finish_code": "LWD_MF_PB",
+    "name": "Lockwood Polished Brass (Lacquered)",
+    "type": "Metal Plate",
+    "supplier_or_range": "Lockwood",
+    "manufacturer_finish_details": {
+      "code": "PB",
+      "name": "Polished Brass"
+    },
+    "color_details": {
+      "color_family": "Gold",
+      "sheen_level": "Polished"
+    },
+    "description": "Classic polished brass finish, typically lacquered to maintain brightness and prevent tarnishing.",
+    "notes_on_application": "Popular for traditional aesthetics.",
+    "sample_ordering_code_internal": "FIN-SAMPLEPB",
+    "image_url_swatch": "https://gw-assets.assaabloy.com/is/image/assaabloy/PB:1x1?wid=380&hei=380",
+    "care_instructions": "Clean with a soft cloth. Avoid abrasives on lacquered surface.",
+    "is_special_order": true,
+    "last_updated": "2025-06-05T12:09:00Z"
+  },
+  {
+    "finish_code": "LWD_MF_SB",
+    "name": "Lockwood Satin Brass (Lacquered)",
+    "type": "Metal Plate",
+    "supplier_or_range": "Lockwood",
+    "manufacturer_finish_details": {
+      "code": "SB",
+      "name": "Satin Brass"
+    },
+    "color_details": {
+      "color_family": "Gold",
+      "sheen_level": "Satin"
+    },
+    "description": "A satin brass finish providing a muted, warm gold tone, typically lacquered for durability.",
+    "notes_on_application": "Offers a modern take on brass.",
+    "sample_ordering_code_internal": "FIN-SAMPLESB",
+    "image_url_swatch": "https://gw-assets.assaabloy.com/is/image/assaabloy/SB:1x1?wid=380&hei=380",
+    "care_instructions": "Wipe with a soft cloth.",
+    "is_special_order": true,
+    "last_updated": "2025-06-05T12:09:00Z"
+  },
+  {
+    "finish_code": "LWD_MF_BU",
+    "name": "Lockwood Polished Brass Unlacquered",
+    "type": "Living Finish",
+    "supplier_or_range": "Lockwood",
+    "manufacturer_finish_details": {
+      "code": "BU",
+      "name": "Polished Brass Unlacquered"
+    },
+    "color_details": {
+      "color_family": "Gold",
+      "sheen_level": "Polished (will patina)"
+    },
+    "description": "Unlacquered polished brass that will naturally tarnish and patina over time, developing a unique aged look.",
+    "notes_on_application": "Chosen for its evolving appearance; not for those wanting a consistently bright finish.",
+    "sample_ordering_code_internal": "FIN-SAMPLEBU",
+    "image_url_swatch": "https://gw-assets.assaabloy.com/is/image/assaabloy/BU:1x1?wid=380&hei=380",
+    "care_instructions": "Can be allowed to patina or polished to restore shine.",
+    "is_special_order": true,
+    "last_updated": "2025-06-05T12:09:00Z"
+  },
+  {
+    "finish_code": "LWD_MF_SBU",
+    "name": "Lockwood Satin Brass Unlacquered",
+    "type": "Living Finish",
+    "supplier_or_range": "Lockwood",
+    "manufacturer_finish_details": {
+      "code": "SBU",
+      "name": "Satin Brass Unlacquered"
+    },
+    "color_details": {
+      "color_family": "Gold",
+      "sheen_level": "Satin (will patina)"
+    },
+    "description": "Unlacquered satin brass that will naturally tarnish and develop a patina, offering a soft, aged appearance.",
+    "notes_on_application": "Evolves over time; for a dynamic, characterful look.",
+    "sample_ordering_code_internal": "FIN-SAMPLESBU",
+    "image_url_swatch": "https://gw-assets.assaabloy.com/is/image/assaabloy/SBU:1x1?wid=380&hei=380",
+    "care_instructions": "Can be allowed to patina or gently cleaned.",
+    "is_special_order": true,
+    "last_updated": "2025-06-05T12:09:00Z"
+  },
+  {
+    "finish_code": "LWD_MF_SC",
+    "name": "Lockwood Satin Chrome Plating",
+    "type": "Metal Plate",
+    "supplier_or_range": "Lockwood",
+    "manufacturer_finish_details": {
+      "code": "SC",
+      "name": "Satin Chrome Plating"
+    },
+    "color_details": {
+      "color_family": "Silver",
+      "sheen_level": "Satin"
+    },
+    "description": "Durable electroplated satin chrome finish with a modern, brushed appearance. High corrosion resistance.",
+    "notes_on_application": "Standard finish for a wide range of applications, including coastal areas.",
+    "sample_ordering_code_internal": "FIN-SAMPLESC",
+    "image_url_swatch": "https://gw-assets.assaabloy.com/is/image/assaabloy/SC:1x1?wid=380&hei=380",
+    "care_instructions": "Wipe with a soft, damp cloth. Avoid abrasive cleaners.",
+    "is_special_order": false,
+    "last_updated": "2025-06-05T12:09:00Z"
+  },
+  {
+    "finish_code": "LWD_MF_CP",
+    "name": "Lockwood Chrome Plating",
+    "type": "Metal Plate",
+    "supplier_or_range": "Lockwood",
+    "manufacturer_finish_details": {
+      "code": "CP",
+      "name": "Chrome Plating"
+    },
+    "color_details": {
+      "color_family": "Silver",
+      "sheen_level": "Polished"
+    },
+    "description": "Bright, reflective polished chrome plated finish. Durable and tarnish-resistant.",
+    "notes_on_application": "Common for contemporary hardware.",
+    "sample_ordering_code_internal": "FIN-SAMPLECP",
+    "image_url_swatch": "https://gw-assets.assaabloy.com/is/image/assaabloy/CP:1x1?wid=380&hei=380",
+    "care_instructions": "Wipe with a soft, dry or damp cloth. Buff to shine.",
+    "is_special_order": false,
+    "last_updated": "2025-06-05T12:09:00Z"
+  },
+  {
+    "finish_code": "LWD_MF_SS",
+    "name": "Lockwood Satin Stainless Steel",
+    "type": "Stainless Steel Finish",
+    "supplier_or_range": "Lockwood",
+    "manufacturer_finish_details": {
+      "code": "SS",
+      "name": "Satin Stainless Steel"
+    },
+    "color_details": {
+      "color_family": "Silver",
+      "sheen_level": "Satin Brushed"
+    },
+    "description": "Finish achieved on solid stainless steel material, offering high durability and corrosion resistance.",
+    "notes_on_application": "Ideal for exterior, coastal, and high-traffic applications. Grade of stainless steel (e.g., 304, 316) is key.",
+    "sample_ordering_code_internal": "FIN-SAMPLESS",
+    "image_url_swatch": "https://gw-assets.assaabloy.com/is/image/assaabloy/SS:1x1?wid=380&hei=380",
+    "care_instructions": "Clean with stainless steel cleaner or a soft cloth with mild detergent.",
+    "is_special_order": false,
+    "last_updated": "2025-06-05T12:09:00Z"
+  },
+  {
+    "finish_code": "LWD_MF_PS",
+    "name": "Lockwood Polished Stainless Steel",
+    "type": "Stainless Steel Finish",
+    "supplier_or_range": "Lockwood",
+    "manufacturer_finish_details": {
+      "code": "PS",
+      "name": "Polished Stainless Steel"
+    },
+    "color_details": {
+      "color_family": "Silver",
+      "sheen_level": "Polished"
+    },
+    "description": "Highly polished finish on solid stainless steel material, offering a bright, reflective look with excellent durability.",
+    "notes_on_application": "Suitable for premium applications, exterior use. Grade of stainless steel is important.",
+    "sample_ordering_code_internal": "FIN-SAMPLEPS",
+    "image_url_swatch": "https://gw-assets.assaabloy.com/is/image/assaabloy/PS:1x1?wid=380&hei=380",
+    "care_instructions": "Wipe with a soft cloth; can be polished.",
+    "is_special_order": false,
+    "last_updated": "2025-06-05T12:09:00Z"
+  },
+  {
+    "finish_code": "LWD_MF_NT",
+    "name": "Lockwood Natural Anodized Aluminium",
+    "type": "Anodised Aluminium",
+    "supplier_or_range": "Lockwood",
+    "manufacturer_finish_details": {
+      "code": "NT",
+      "name": "Natural Anodized Aluminium"
+    },
+    "color_details": {
+      "color_family": "Silver/Grey",
+      "sheen_level": "Matt/Satin"
+    },
+    "description": "A durable, corrosion-resistant anodized finish on aluminium, typically resulting in a natural silver/grey matt appearance.",
+    "notes_on_application": "Common for commercial aluminium door hardware and fittings.",
+    "sample_ordering_code_internal": "FIN-SAMPLENT",
+    "image_url_swatch": "https://gw-assets.assaabloy.com/is/image/assaabloy/NT:1x1?wid=380&hei=380",
+    "care_instructions": "Clean with mild detergent and water.",
+    "is_special_order": false,
+    "last_updated": "2025-06-05T12:09:00Z"
+  }
+]

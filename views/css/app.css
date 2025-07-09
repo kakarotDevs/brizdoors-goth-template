@@ -2,27 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-/* HSL Color System - Dark Mode as Default */
+html {
+  font-family:
+    "Nunito Sans",
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+body {
+  font-family: inherit;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========================= */
+/* HSL Color System & Themes */
+/* ========================= */
 :root {
   /* Dark Mode Colors (Default) */
-  --bg-dark: 0 0% 0%; /* Very dark background */
-  --bg: 0 0% 5%; /* Main background */
-  --bg-light: 0 0% 10%; /* Light surface/cards */
-  --text: 0 0% 95%; /* Main text */
-  --text-muted: 0 0% 70%; /* Muted text */
+  --bg-dark: 220 15% 8%; /* Very dark background with slight blue tint */
+  --bg: 220 15% 12%; /* Main background */
+  --bg-light: 220 15% 18%; /* Light surface/cards */
+  --text: 220 15% 88%; /* Main text - warm off-white */
+  --text-muted: 220 15% 65%; /* Muted text - softer gray */
+  --caret: 220 15% 88%; /* Caret color - warm off-white */
 }
 
-/* Light Mode Colors (when .light class is applied) */
 .light {
-  --bg-dark: 0 0% 90%; /* Very light background */
-  --bg: 0 0% 95%; /* Main background */
-  --bg-light: 0 0% 100%; /* Light surface/cards */
-  --text: 0 0% 5%; /* Main text */
-  --text-muted: 0 0% 30%; /* Muted text */
+  /* Light Mode Colors */
+  --bg-dark: 220 20% 90%; /* Very light background */
+  --bg: 220 20% 95%; /* Main background */
+  --bg-light: 220 20% 98%; /* Light surface/cards */
+  --text: 220 25% 15%; /* Main text - warm dark gray, not pure black */
+  --text-muted: 220 25% 35%; /* Muted text - softer gray */
+  --caret: 220 25% 15%; /* Caret color - warm dark gray */
 }
-
-/* Logo switching based on theme */
-/* Default (dark mode) - show dark logo, hide light logo */
+/* Default (dark mode): show dark logo, hide light logo */
 .logo-dark {
   display: block;
 }
@@ -30,7 +48,7 @@
   display: none;
 }
 
-/* Light mode - show light logo, hide dark logo */
+/* Light mode: show light logo, hide dark logo */
 .light .logo-dark {
   display: none;
 }
@@ -38,7 +56,23 @@
   display: block;
 }
 
-/* Fix autofill styles using custom CSS variables */
+/* ================== */
+/* Input & Autofill Styling   */
+/* ================== */
+
+@media (prefers-color-scheme: dark) {
+  input,
+  textarea {
+    caret-color: white;
+  }
+  input:-webkit-autofill,
+  textarea:-webkit-autofill {
+    -webkit-text-fill-color: white;
+    caret-color: white !important;
+    background-color: #222 !important;
+  }
+}
+
 /* Dark mode autofill (default) */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
@@ -49,7 +83,6 @@ input:-webkit-autofill:active {
   transition: background-color 5000s ease-in-out 0s;
   border-color: hsl(var(--bg-light)) !important;
 }
-
 /* Light mode autofill */
 .light input:-webkit-autofill,
 .light input:-webkit-autofill:hover,
@@ -61,7 +94,7 @@ input:-webkit-autofill:active {
   border-color: hsl(var(--bg-light)) !important;
 }
 
-/* Ensure autofill doesn't override our background classes */
+/* Autofill: background classes override */
 input[type="email"]:-webkit-autofill,
 input[type="password"]:-webkit-autofill,
 input[type="text"]:-webkit-autofill {
@@ -78,49 +111,17 @@ input[type="text"]:-webkit-autofill {
   border-color: transparent !important;
 }
 
-/* Alternative Input Styles - Uncomment the one you prefer */
+.text-text {
+  color: hsl(var(--text));
+}
+.text-text-muted {
+  color: hsl(var(--text-muted));
+}
 
-/* Option 1: Subtle Underline Style */
-/*
-.input-underline {
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid hsl(var(--bg-light));
-  border-radius: 0;
-  padding: 12px 0;
-  transition: border-color 0.2s ease;
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
 }
-.input-underline:focus {
-  border-bottom-color: rgb(59 130 246);
-  background: transparent;
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
-*/
-
-/* Option 2: Glass/Frosted Effect */
-/*
-.input-glass {
-  background: hsl(var(--bg-light) / 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid hsl(var(--text) / 0.1);
-  border-radius: 12px;
-}
-.input-glass:focus {
-  background: hsl(var(--bg-light) / 0.2);
-  border-color: rgb(59 130 246);
-}
-*/
-
-/* Option 3: Floating Label Effect */
-/*
-.input-floating {
-  background: transparent;
-  border: 2px solid hsl(var(--bg-light));
-  border-radius: 8px;
-  padding: 16px 12px 8px;
-}
-.input-floating:focus {
-  border-color: rgb(59 130 246);
-  background: hsl(var(--bg-light) / 0.5);
-}
-*/
-

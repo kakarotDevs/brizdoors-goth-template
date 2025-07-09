@@ -1,0 +1,43 @@
+# Binaries and build output
+*.exe
+*.out
+*.test
+*.o
+*.a
+tmp/
+bin/
+dist/
+build/
+*.log
+
+# Go module caches and auto-generated files
+go.sum
+*.mod
+*.work
+*.work.sum
+
+# Embedded/generated Templ files (optional, if not committed)
+**/*_templ.go
+
+# Air live reload logs and files
+.build/
+build-errors.log
+
+# Node modules and artifacts
+node_modules/
+# Compiled CSS (but not source CSS)
+public/styles.css
+*.css.map
+
+# Environment files (API keys, ports, secrets)
+.env
+.env.*
+
+# Editor/IDE settings
+.vscode/
+.idea/
+.zed/
+
+# OS junk
+.DS_Store
+Thumbs.db

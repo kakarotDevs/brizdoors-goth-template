@@ -21,10 +21,9 @@ func HandleHome(w http.ResponseWriter, r *http.Request) error {
 	if isUserLoggedIn(r) {
 		// Logged-in users should be redirected to lobby
 		http.Redirect(w, r, "/lobby", http.StatusFound)
-	return nil
+		return nil
 	}
 
 	// Only show login form for non-authenticated users
 	return Render(w, r, home.Index(isLightMode))
-
 }

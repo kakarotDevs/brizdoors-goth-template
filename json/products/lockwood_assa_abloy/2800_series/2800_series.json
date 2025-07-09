@@ -1,0 +1,376 @@
+[
+  {
+    "hardware_item_code": "LWD-P2801-L70-ENT-SC",
+    "product_type": "plate_furniture",
+    "name": "Lockwood 2800 Series Round End Plate, Entrance Set (2801), Lever 70, SC",
+    "description": "Lockwood 2800 Series round end plate furniture for exterior doors. Entrance set configuration typically used with a keyed mortice lock and cylinder. Features AS1428.1 compliant Lever 70. Solid brass construction. Plates are 166x48x12mm and designed for back-to-back fixing. Suits 32-45mm thick doors (options for thicker doors available). Designed and assembled in Australia.",
+    "status": "active",
+    "manufacturer_details": {
+      "name": "Lockwood Assa Abloy",
+      "part_code": "2801/70SC",
+      "article_number": null,
+      "series": "2800 Series Round End Plate Furniture (Exterior)",
+      "ordering_method": null,
+      "order_reference_code_format": "PlateFunctionNo/LeverNo/Handing/Finish"
+    },
+    "available_finish_codes": [
+      "LWD_MF_SC",
+      "LWD_MF_CP",
+      "LWD_MF_PB",
+      "PC_SELECT_COLOR",
+      "LWD_MF_AZ",
+      "LWD_MF_AU",
+      "LWD_MF_AC",
+      "LWD_MF_ORB",
+      "LWD_MF_BU",
+      "LWD_MF_SB"
+    ],
+    "selected_finish_code": "LWD_MF_SC",
+    "backset_options": [],
+    "selected_backset": null,
+    "requires_handing": true,
+    "handing": null,
+    "standardized_function_description": "Entrance Set - For use with keyed mortice locks, provides lever operation (exterior application).",
+    "is_as1428_compliant": true,
+
+    "certifications_and_standards": [
+      {
+        "code": "AS1905.1:2005 Part 1",
+        "name": "Fire Resistant Doorsets",
+        "description_of_standard": "Australian Standard for components used in the protection of openings in fire-resistant walls.",
+        "product_compliance_notes": "2800 Series has been successfully tested up to 4 hours with a fire rated Lockwood mortice lock on fire door assemblies (depending on type of doorset)."
+      },
+      {
+        "code": "AS4145.2-2008 D8",
+        "name": "Locksets and hardware for doors and windows - Durability",
+        "description_of_standard": "Australian Standard specifying durability requirements (D8 = 500,000 cycles).",
+        "product_compliance_notes": "2800 Series lever sets have been successfully tested to conform with Level D8."
+      },
+      {
+        "code": "AS4145.2-2008 C10 (SC Finish)",
+        "name": "Locksets and hardware for doors and windows - Corrosion Resistance",
+        "description_of_standard": "Australian Standard specifying corrosion resistance (C10 = 1000 hours Neutral Salt Spray).",
+        "product_compliance_notes": "2800 Series in brushed satin chrome finish has been successfully tested to conform with Level C10."
+      },
+      {
+        "code": "AS1428.1-2009",
+        "name": "Design for access and mobility - General requirements for access - New building work",
+        "description_of_standard": "Specifies design requirements for new building work to provide access for people with disabilities.",
+        "product_compliance_notes": "2800 Series includes levers and turns that meet the requirements of AS1428.1-2009."
+      }
+    ],
+    "tags": [
+      "plate_furniture",
+      "entrance_set",
+      "lockwood",
+      "2800_series",
+      "lever_70",
+      "exterior",
+      "fire_rated_compatible",
+      "high_durability",
+      "AS1428.1_compliant_components"
+    ],
+    "image_url": "https://eshop.assaabloyopeningsolutions.com.au/media/catalog/product/cache/2c82f4e8f9a160a65a83715881ae9b10/2/8/2801_70SC_1.jpg",
+    "material_main": "Solid Brass",
+    "plate_furniture_details": {
+      "plate_series_or_style_code": "2800",
+      "plate_designation_or_function_code": "2801",
+      "plate_description": "Round End Plate, Exterior Entrance Function",
+      "handle_style_code": "70",
+      "plate_dimensions_mm": {
+        "length": { "value": 166, "unit": "mm" },
+        "width": { "value": 48, "unit": "mm" },
+        "thickness": { "value": 12, "unit": "mm" }
+      },
+      "fixing_type_description": "Back-to-back fixing. If outside plate is specified with concealed fixing, then the inside plate must be visible fixed.",
+      "features": [
+        "Compatible with keyed mortice locks",
+        "Lever operation",
+        "Adjustable tailbar for turn functions (if applicable to this function)"
+      ]
+    },
+    "ordering_info": {
+      "requires_combination_with_other_parts": true,
+      "example_order_string_manufacturer": "2801/70SC/LH (example with handing)",
+      "notes_for_ordering": "Specify handing (Left Hand 'L' or Right Hand 'R'). Exterior Entrance Set. Suits door thickness 32-45mm (refer to thicker door options if needed). Used with Lockwood keyed mortice locks (e.g., 3770 Selector series). Cylinder ordered separately."
+    },
+    "compatibility": {
+      "compatible_door_series_internal": [],
+      "compatible_hardware_item_codes_internal": [
+        "LWD-SEL3772-60-SS",
+        "<your_code_for_Abloy_Protec2_CY504_cylinder>"
+      ],
+      "compatible_door_thickness_mm": {
+        "min": 32,
+        "max": 45,
+        "notes": "Options available for thicker doors, refer to specific catalogue section."
+      }
+    },
+    "additional_attributes_raw": {
+      "original_finish_term_manufacturer": "Satin Chrome (SC)",
+      "standard_finishes_list_manufacturer": ["SC"],
+      "non_standard_finishes_list_manufacturer": ["CP", "PB", "PC"],
+      "special_finishes_list_manufacturer": [
+        "AZ",
+        "AU",
+        "AC",
+        "ORB",
+        "BU",
+        "SB"
+      ],
+      "manufacturer_specific_notes": "Solid brass construction. Plates are not handed; levers may be reversed by removing the stop screw, except for specific handed levers and functions. Designed, assembled and customised in Australia."
+    },
+    "dimensions_overall_package": null,
+    "visibility_scope": {
+      "show_on_client_portal": true,
+      "available_for_quote_generation": true,
+      "internal_use_only": false
+    },
+    "metadata": {
+      "last_updated": null,
+      "created_date": null,
+      "version": 1,
+      "internal_notes": "Lockwood 2800 Series, 2801 Entrance function. Updated with general plate specs (dimensions, fixing, door thickness, specific finish list). Verify '2801' exact function."
+    }
+  },
+  {
+    "hardware_item_code": "LWD-P2901-L70-PAS-SC",
+    "product_type": "plate_furniture",
+    "name": "Lockwood 2900 Series Round End Plate, Passage Set (2901 - Internal), Lever 70, SC",
+    "description": "Lockwood 2900 Series 'Internal' round end plate furniture with Lever 70. Passage set configuration suitable for non-locking interior doors. Features AS1428.1 compliant Lever 70. Solid brass construction. Plates are 166x48x12mm and designed for back-to-back fixing. Suits 32-45mm thick doors. Designed and assembled in Australia.",
+    "status": "active",
+    "manufacturer_details": {
+      "name": "Lockwood Assa Abloy",
+      "part_code": "2901/70SC",
+      "article_number": null,
+      "series": "2900 Series Round End Plate Furniture (Interior)",
+      "ordering_method": null,
+      "order_reference_code_format": "PlateFunctionNo/LeverNo/Handing(if_applicable)/Finish"
+    },
+    "available_finish_codes": [
+      "LWD_MF_SC",
+      "LWD_MF_CP",
+      "LWD_MF_PB",
+      "PC_SELECT_COLOR",
+      "LWD_MF_AZ",
+      "LWD_MF_AU",
+      "LWD_MF_AC",
+      "LWD_MF_ORB",
+      "LWD_MF_BU",
+      "LWD_MF_SB"
+    ],
+    "selected_finish_code": "LWD_MF_SC",
+    "backset_options": [],
+    "selected_backset": null,
+    "requires_handing": true,
+    "handing": null,
+    "standardized_function_description": "Passage Set - Non-locking, for general internal doors.",
+    "is_as1428_compliant": true,
+
+    "certifications_and_standards": [
+      {
+        "code": "AS1905.1:2005 Part 1",
+        "name": "Fire Resistant Doorsets",
+        "description_of_standard": "Australian Standard for components used in the protection of openings in fire-resistant walls.",
+        "product_compliance_notes": "2900 Series (similar to 2800 Series) successfully tested up to 4 hours with a fire rated Lockwood mortice lock/latch on fire door assemblies (depending on type of doorset)."
+      },
+      {
+        "code": "AS4145.2-2008 D8",
+        "name": "Locksets and hardware for doors and windows - Durability",
+        "description_of_standard": "Australian Standard specifying durability requirements (D8 = 500,000 cycles).",
+        "product_compliance_notes": "2900 Series (similar to 2800 Series) lever sets have been successfully tested to conform with Level D8."
+      },
+      {
+        "code": "AS4145.2-2008 C10 (SC Finish)",
+        "name": "Locksets and hardware for doors and windows - Corrosion Resistance",
+        "description_of_standard": "Australian Standard specifying corrosion resistance (C10 = 1000 hours Neutral Salt Spray).",
+        "product_compliance_notes": "2900 Series (similar to 2800 Series) in brushed satin chrome finish has been successfully tested to conform with Level C10."
+      },
+      {
+        "code": "AS1428.1-2009",
+        "name": "Design for access and mobility - General requirements for access - New building work",
+        "description_of_standard": "Specifies design requirements for new building work to provide access for people with disabilities.",
+        "product_compliance_notes": "2900 Series (similar to 2800 Series) includes levers and turns that meet the requirements of AS1428.1-2009."
+      }
+    ],
+    "tags": [
+      "plate_furniture",
+      "passage_set",
+      "lockwood",
+      "2900_series",
+      "lever_70",
+      "internal_use_only",
+      "fire_rated_compatible",
+      "high_durability",
+      "AS1428.1_compliant_components"
+    ],
+    "image_url": "https://eshop.assaabloyopeningsolutions.com.au/media/catalog/product/cache/2c82f4e8f9a160a65a83715881ae9b10/2/9/2901_70SC_2.jpg",
+    "material_main": "Solid Brass",
+    "plate_furniture_details": {
+      "plate_series_or_style_code": "2900",
+      "plate_designation_or_function_code": "2901",
+      "plate_description": "Round End Plate, Interior Passage Function",
+      "handle_style_code": "70",
+      "plate_dimensions_mm": {
+        "length": { "value": 166, "unit": "mm" },
+        "width": { "value": 48, "unit": "mm" },
+        "thickness": { "value": 12, "unit": "mm" }
+      }
+    },
+    "ordering_info": {
+      "requires_combination_with_other_parts": true,
+      "example_order_string_manufacturer": "2901/70SC/LH (example with handing if applicable)",
+      "notes_for_ordering": "Specify handing if required by plate design. Interior Passage Set. Suits door thickness 32-45mm. Used with compatible passage latches (e.g., Lockwood 530 series)."
+    },
+    "compatibility": {
+      "compatible_door_series_internal": [],
+      "compatible_hardware_item_codes_internal": [
+        "<your_code_for_Lockwood_530_Latch>"
+      ]
+    },
+    "additional_attributes_raw": {
+      "original_finish_term_manufacturer": "Satin Chrome (SC)",
+      "manufacturer_specific_notes": "Solid brass construction. Concealed fixing. Specifically for internal applications. Designed, assembled and customised in Australia."
+    },
+    "dimensions_overall_package": null,
+    "visibility_scope": {
+      "show_on_client_portal": true,
+      "available_for_quote_generation": true,
+      "internal_use_only": false
+    },
+    "metadata": {
+      "last_updated": null,
+      "created_date": null,
+      "version": 1,
+      "internal_notes": "Lockwood 2900 Series (Internal), 2901 Passage function. Assumed Lever 70, SC finish. Verify exact function of '2901' and if all certifications apply equally to internal series."
+    }
+  },
+  {
+    "hardware_item_code": "LWD-P2814-L90-PRIVIND-SC",
+    "product_type": "plate_furniture",
+    "name": "Lockwood 2800 Series Plate, Privacy Indicating Set (2814), Lever 90, SC",
+    "description": "Lockwood 2800 Series round end plate furniture for exterior applications. Privacy set (model 2814) featuring an indicating turnknob and emergency release, paired with Lever 90. Solid brass construction. Plates are 166x48x12mm. Suits 32-45mm thick doors. Designed and assembled in Australia.",
+    "status": "active",
+    "manufacturer_details": {
+      "name": "Lockwood Assa Abloy",
+      "part_code": "2814/90SC",
+      "article_number": null,
+      "series": "2800 Series Round End Plate Furniture (Exterior)",
+      "ordering_method": null,
+      "order_reference_code_format": "PlateFunctionNo/LeverNo/Handing/Finish"
+    },
+    "available_finish_codes": [
+      "LWD_MF_SC",
+      "LWD_MF_CP",
+      "LWD_MF_PB",
+      "PC_SELECT_COLOR",
+      "LWD_MF_AZ",
+      "LWD_MF_AU",
+      "LWD_MF_AC",
+      "LWD_MF_ORB",
+      "LWD_MF_BU",
+      "LWD_MF_SB"
+    ],
+    "selected_finish_code": "LWD_MF_SC",
+    "backset_options": [],
+    "selected_backset": null,
+    "requires_handing": true,
+    "handing": null,
+    "standardized_function_description": "Privacy Indicating Set - Lockable with internal turnknob, external indicator (e.g., 'Vacant'/'Engaged'), and external emergency release. Features Lever 90.",
+    "is_as1428_compliant": null,
+
+    "certifications_and_standards": [
+      {
+        "code": "AS1905.1:2005 Part 1",
+        "name": "Fire Resistant Doorsets",
+        "description_of_standard": "Australian Standard for components used in the protection of openings in fire-resistant walls.",
+        "product_compliance_notes": "2800 Series has been successfully tested up to 4 hours with a fire rated Lockwood mortice lock on fire door assemblies (depending on type of doorset)."
+      },
+      {
+        "code": "AS4145.2-2008 D8",
+        "name": "Locksets and hardware for doors and windows - Durability",
+        "description_of_standard": "Australian Standard specifying durability requirements (D8 = 500,000 cycles).",
+        "product_compliance_notes": "2800 Series lever sets have been successfully tested to conform with Level D8."
+      },
+      {
+        "code": "AS4145.2-2008 C10 (SC Finish)",
+        "name": "Locksets and hardware for doors and windows - Corrosion Resistance",
+        "description_of_standard": "Australian Standard specifying corrosion resistance (C10 = 1000 hours Neutral Salt Spray).",
+        "product_compliance_notes": "2800 Series in brushed satin chrome finish has been successfully tested to conform with Level C10."
+      },
+      {
+        "code": "AS1428.1-2009",
+        "name": "Design for access and mobility - General requirements for access - New building work",
+        "description_of_standard": "Specifies design requirements for new building work to provide access for people with disabilities.",
+        "product_compliance_notes": "2800 Series turns meet AS1428.1-2009 requirements. Compliance of Lever 90 to be verified."
+      }
+    ],
+    "tags": [
+      "plate_furniture",
+      "privacy_set",
+      "indicating_lock",
+      "lockwood",
+      "2800_series",
+      "lever_90",
+      "exterior",
+      "fire_rated_compatible",
+      "high_durability"
+    ],
+    "image_url": "https://eshop.assaabloyopeningsolutions.com.au/media/catalog/product/cache/2c82f4e8f9a160a65a83715881ae9b10/2/8/2814_90SC_LW_EN_C1.png",
+    "material_main": "Solid Brass",
+    "plate_furniture_details": {
+      "plate_series_or_style_code": "2800",
+      "plate_designation_or_function_code": "2814",
+      "plate_description": "Round End Plate, Exterior Privacy Indicating Function with Turnknob (paired with Lever 90)",
+      "handle_style_code": "90",
+      "plate_dimensions_mm": {
+        "length": { "value": 166, "unit": "mm" },
+        "width": { "value": 48, "unit": "mm" },
+        "thickness": { "value": 12, "unit": "mm" }
+      },
+      "fixing_type_description": "Back-to-back fixing. If outside plate is specified with concealed fixing, then the inside plate must be visible fixed.",
+      "features": [
+        "Indicating Turnknob (Vacant/Engaged)",
+        "Emergency Release (typically external)",
+        "Lever operation (Lever 90)"
+      ]
+    },
+    "ordering_info": {
+      "requires_combination_with_other_parts": true,
+      "example_order_string_manufacturer": "2814/90SC/LH (example with handing)",
+      "notes_for_ordering": "Specify handing (Left Hand 'L' or Right Hand 'R'). Exterior Privacy Indicating Set (Plate 2814 with Lever 90). Suits door thickness 32-45mm. Used with compatible privacy mortice locks/latches that work with indicating turnknobs."
+    },
+    "compatibility": {
+      "compatible_door_series_internal": [],
+      "compatible_hardware_item_codes_internal": [
+        "<your_code_for_Lockwood_Privacy_Indicating_Mortice_Lock>"
+      ]
+    },
+    "additional_attributes_raw": {
+      "original_finish_term_manufacturer": "Satin Chrome (SC)",
+      "standard_finishes_list_manufacturer": ["SC"],
+      "non_standard_finishes_list_manufacturer": ["CP", "PB", "PC"],
+      "special_finishes_list_manufacturer": [
+        "AZ",
+        "AU",
+        "AC",
+        "ORB",
+        "BU",
+        "SB"
+      ],
+      "manufacturer_specific_notes": "Solid brass construction. Turn functions feature adjustable tailbar. Designed, assembled and customised in Australia. This configuration uses Lever 90. Properties of Lever 90 (AS1428.1 compliance, specific handing characteristics if any) to be confirmed from manufacturer data."
+    },
+    "dimensions_overall_package": null,
+    "visibility_scope": {
+      "show_on_client_portal": true,
+      "available_for_quote_generation": true,
+      "internal_use_only": false
+    },
+    "metadata": {
+      "last_updated": null,
+      "created_date": null,
+      "version": 1,
+      "internal_notes": "Lockwood 2800 Series, 2814 Privacy Indicating function with Lever 90, SC finish. Verify Lever 90 specs (AS1428.1, handing) and if it affects overall set compliance notes."
+    }
+  }
+]

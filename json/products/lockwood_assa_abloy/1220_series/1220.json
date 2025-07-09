@@ -1,0 +1,128 @@
+[
+  {
+    "hardware_item_code": "LWD-S1220-L70-SET-SC",
+    "product_type": "lever_on_rose",
+    "name": "Lockwood 1220 Symphony Series Lever 70 on Round Rose - Full Set, Satin Chrome",
+    "description": "Lockwood 1220 Symphony Series solid brass round rose furniture as a full set (exterior and interior roses) with Lever 70. Features concealed fixing. AS1428.1 compliant. Suitable for residential and commercial applications, requires a separate latch or mortice lock for functionality.",
+    "status": "active",
+    "manufacturer_details": {
+      "name": "Lockwood Assa Abloy",
+      "part_code": "1220/1221/70SC",
+      "article_number": null,
+      "series": "1220 Symphony Series",
+      "ordering_method": null,
+      "order_reference_code_format": "RoseSet(e.g.1220/1221)/LeverNo/Handing(if_applicable)/Finish"
+    },
+    "available_finish_codes": [
+      "LWD_MF_SC",
+      "LWD_MF_AZ",
+      "LWD_MF_AU",
+      "LWD_MF_AC",
+      "LWD_MF_CP",
+      "LWD_MF_ORB",
+      "LWD_MF_PB",
+      "LWD_MF_BU",
+      "PC_SELECT_COLOR",
+      "LWD_MF_SB"
+    ],
+    "selected_finish_code": "LWD_MF_SC",
+    "backset_options": [],
+    "selected_backset": null,
+    "requires_handing": false,
+    "handing": "U",
+    "standardized_function_description": "Lever furniture (handles and roses) as a complete set for one door (exterior and interior). Functionality (e.g., passage, privacy, entrance) is determined by the separate latch or mortice lock it is paired with.",
+    "is_as1428_compliant": true,
+    "certifications_and_standards": [
+      {
+        "code": "AS1428.1-2009",
+        "name": "Design for access and mobility",
+        "description_of_standard": "Australian Standard for disability access in buildings.",
+        "product_compliance_notes": "Lever 70 component is compliant. Overall installation compliance is also necessary."
+      },
+      {
+        "code": "AS1905.1-2005 Part 1",
+        "name": "Fire Resistant Doorsets",
+        "description_of_standard": "Australian Standard for fire door assemblies.",
+        "product_compliance_notes": "Successfully tested up to 4 hours (SL Lever - Physical Security) on suitable fire door assemblies when used with an approved Lockwood fire-rated mortice lock."
+      },
+      {
+        "code": "AS4145.2-2008 D8",
+        "name": "Locksets and hardware for doors - Durability Rating D8",
+        "description_of_standard": "Australian Standard for durability of mechanical elements, D8 is 500,000 cycles.",
+        "product_compliance_notes": "Successfully tested to D8 (Durability - Extreme)."
+      },
+      {
+        "code": "AS4145.2-2008 C10 (SC Finish)",
+        "name": "Locksets and hardware for doors - Corrosion Resistance C10 (SC Finish)",
+        "description_of_standard": "Australian Standard for corrosion resistance. C10 for Satin Chrome means >1000 hours Neutral Salt Spray.",
+        "product_compliance_notes": "Satin Chrome (SC) finish passes C10 - Extreme Corrosion Resistance."
+      }
+    ],
+    "tags": [
+      "lever_on_rose",
+      "full_set",
+      "brass",
+      "commercial",
+      "residential",
+      "accessible",
+      "fire_rated_compatible",
+      "symphony_series",
+      "lockwood",
+      "concealed_fixing"
+    ],
+    "image_url": "https://gw-assets.assaabloy.com/is/image/assaabloy/a21e6-1220-1221-70sc_lwenc1",
+    "material_main": "Solid Brass",
+    "lever_on_rose_details": {
+      "lever_style_code": "70",
+      "rose_style_code": "1220",
+      "manufacturer_rose_no": "1220/1221",
+      "rose_type_description": "Round Concealed Fix Rose - Exterior & Interior Set"
+    },
+    "ordering_info": {
+      "requires_combination_with_other_parts": true,
+      "example_order_string_manufacturer": "1220/1221/70SC",
+      "notes_for_ordering": "Full door set. Standard finish: SC. Non-standard finishes (AZ, AU, AC, CP, ORB, PB, BU, PC, SB) may have longer lead times or additional cost. Designed for Lockwood 3770/3570 Mortice Locks or 5260/530 Latches. Door thickness 32-50mm."
+    },
+    "compatibility": {
+      "compatible_door_series_internal": [],
+      "compatible_hardware_item_codes_internal": [
+        "LWD-SEL3772-60-SS",
+        "<your_code_for_Lockwood_570_Cylinder>"
+      ]
+    },
+    "additional_attributes_raw": {
+      "original_finish_term_manufacturer": "Satin Chrome Brushed (SC)",
+      "standard_finishes_list": ["SC"],
+      "non_standard_finishes_list": [
+        "AZ",
+        "AU",
+        "AC",
+        "CP",
+        "ORB",
+        "PB",
+        "BU",
+        "PC",
+        "SB"
+      ],
+      "manufacturer_specific_notes": "Fixing: Concealed. Spindle: Included, 7.6mm. Finger Clearance: 37mm (AS1428.1). Rose Diameter: 53mm. Rose Projection: approx 11.6mm.",
+      "warranty_details_text_from_manufacturer": "25 Years Mechanical Warranty"
+    },
+    "dimensions_overall_package": {
+      "width": { "value": null, "unit": "mm" },
+      "height": { "value": null, "unit": "mm" },
+      "depth": { "value": null, "unit": "mm" },
+      "weight": { "value": null, "unit": "g" }
+    },
+    "visibility_scope": {
+      "show_on_client_portal": true,
+      "available_for_quote_generation": true,
+      "internal_use_only": false
+    },
+    "metadata": {
+      "last_updated": "2025-06-05T13:05:00Z",
+      "created_date": "2025-06-05T13:05:00Z",
+      "version": 1,
+      "internal_notes": "Updated available finishes based on specific product page info for 1220 Lever 70. This SKU is SC. Notes added for std/non-std finishes."
+    }
+  }
+]

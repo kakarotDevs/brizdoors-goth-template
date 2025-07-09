@@ -11,7 +11,7 @@ func ThemeToggleHandler(w http.ResponseWriter, r *http.Request) error {
 	// Get current theme from cookie
 	cookie, err := r.Cookie("theme")
 	var isLight bool
-	
+
 	if err != nil || cookie.Value == "dark" {
 		// If no cookie or dark theme (default), switch to light
 		isLight = true
@@ -19,10 +19,10 @@ func ThemeToggleHandler(w http.ResponseWriter, r *http.Request) error {
 			Name:     "theme",
 			Value:    "light",
 			Path:     "/",
-			MaxAge:   86400 * 365, // 1 year
-			HttpOnly: false,       // Allow JavaScript access for potential future use
-			Secure:   false,       // Set to true in production with HTTPS
-			SameSite: 2, // SameSiteLax
+			MaxAge:   86400 * 365,          // 1 year
+			HttpOnly: false,                // Allow JavaScript access for potential future use
+			Secure:   false,                // Set to true in production with HTTPS
+			SameSite: http.SameSiteLaxMode, // SameSiteLax
 		})
 	} else {
 		// If light theme, switch back to dark (default)
@@ -34,13 +34,13 @@ func ThemeToggleHandler(w http.ResponseWriter, r *http.Request) error {
 			MaxAge:   86400 * 365, // 1 year
 			HttpOnly: false,
 			Secure:   false,
-			SameSite: 2, // SameSiteLax
+			SameSite: http.SameSiteLaxMode, // SameSiteLax
 		})
 	}
 
 	// Set HTMX header to trigger a page refresh for theme change
 	w.Header().Set("HX-Refresh", "true")
-	
+
 	// Return the updated theme toggle button
 	component := partials.ThemeToggle(isLight)
 	return component.Render(r.Context(), w)

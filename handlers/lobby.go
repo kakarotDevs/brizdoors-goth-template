@@ -3,6 +3,7 @@ package handlers
 import (
 	"net/http"
 
+	"github.com/kakarotDevs/brizdoors-goth-template/db"
 	"github.com/kakarotDevs/brizdoors-goth-template/internal"
 	"github.com/kakarotDevs/brizdoors-goth-template/models"
 	"github.com/kakarotDevs/brizdoors-goth-template/views/lobby"
@@ -14,14 +15,12 @@ func HandleLobby(w http.ResponseWriter, r *http.Request) error {
 		http.Redirect(w, r, "/", http.StatusFound)
 		return nil
 	}
-
-	user, err := models.GetUserByID(userID)
+	user, err := models.GetUserByID(r.Context(), db.DB, userID)
 	if err != nil {
 		internal.ClearUserSession(w, r)
 		http.Redirect(w, r, "/", http.StatusFound)
 		return nil
 	}
-
 	isDarkMode := GetThemeFromRequest(r)
-	return Render(w, r, lobby.Index(user.Name, isDarkMode))
+	return Render(w, r, lobby.Index(user.FirstName, isDarkMode))
 }
