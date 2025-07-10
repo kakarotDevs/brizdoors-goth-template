@@ -8,15 +8,14 @@ module.exports = {
     "./*.go",
   ],
   safelist: ["bg-bg-dark", "bg-bg-light", "border-bg-light"],
-  darkMode: "class", // Enable class-based dark mode
   theme: {
     extend: {
       fontFamily: {
         sans: ["'Nunito Sans'", "system-ui", "-apple-system", "sans-serif"],
       },
       colors: {
-        // Custom HSL-based color system
-        // Dark mode colors (default)
+        // Custom HSL-based color system for light theme
+        // bg-bg-dark is a slightly darker light shade for hover/active states
         "bg-dark": "hsl(var(--bg-dark))",
         bg: "hsl(var(--bg))",
         "bg-light": "hsl(var(--bg-light))",

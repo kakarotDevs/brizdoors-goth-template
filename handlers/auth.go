@@ -49,8 +49,7 @@ func generateState() string {
 
 func HandleRegister(w http.ResponseWriter, r *http.Request) error {
 	if r.Method == http.MethodGet {
-		isDarkMode := GetThemeFromRequest(r)
-		return Render(w, r, authviews.Register("", isDarkMode))
+		return Render(w, r, authviews.Register(""))
 	}
 
 	if r.Method == http.MethodPost {
@@ -58,14 +57,12 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) error {
 		password := r.FormValue("password")
 
 		if email == "" || password == "" {
-			isDarkMode := GetThemeFromRequest(r)
-			return Render(w, r, authviews.Register("Email and password are required", isDarkMode))
+			return Render(w, r, authviews.Register("Email and password are required"))
 		}
 
 		hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 		if err != nil {
-			isDarkMode := GetThemeFromRequest(r)
-			return Render(w, r, authviews.Register("Error creating account", isDarkMode))
+			return Render(w, r, authviews.Register("Error creating account"))
 		}
 
 		hashedPasswordString := string(hashedPassword)
@@ -85,11 +82,9 @@ func HandleRegister(w http.ResponseWriter, r *http.Request) error {
 		err = models.CreateUser(r.Context(), db.DB, &user)
 		if err != nil {
 			if err == models.ErrUserAlreadyExists {
-				isDarkMode := GetThemeFromRequest(r)
-				return Render(w, r, authviews.Register("User with that email already exists", isDarkMode))
+				return Render(w, r, authviews.Register("User with that email already exists"))
 			}
-			isDarkMode := GetThemeFromRequest(r)
-			return Render(w, r, authviews.Register("Error creating account", isDarkMode))
+			return Render(w, r, authviews.Register("Error creating account"))
 		}
 
 		// On success, redirect (HTMX handles redirect headers)
@@ -340,8 +335,7 @@ func createAccountAndLogin(w http.ResponseWriter, r *http.Request, email, passwo
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 	if err != nil {
 		if r.Header.Get("HX-Request") == "true" {
-			isDarkMode := GetThemeFromRequest(r)
-			return Render(w, r, authviews.Register("Error creating account", isDarkMode))
+			return Render(w, r, authviews.Register("Error creating account"))
 		}
 		http.Error(w, "Error creating account", http.StatusInternalServerError)
 		return nil
@@ -361,15 +355,13 @@ func createAccountAndLogin(w http.ResponseWriter, r *http.Request, email, passwo
 		if err == models.ErrUserAlreadyExists {
 			// This shouldn't happen since we checked, but handle gracefully
 			if r.Header.Get("HX-Request") == "true" {
-				isDarkMode := GetThemeFromRequest(r)
-				return Render(w, r, authviews.Register("Account already exists. Please try logging in.", isDarkMode))
+				return Render(w, r, authviews.Register("Account already exists. Please try logging in."))
 			}
 			http.Error(w, "Account already exists", http.StatusConflict)
 			return nil
 		}
 		if r.Header.Get("HX-Request") == "true" {
-			isDarkMode := GetThemeFromRequest(r)
-			return Render(w, r, authviews.Register("Error creating account", isDarkMode))
+			return Render(w, r, authviews.Register("Error creating account"))
 		}
 		http.Error(w, "Error creating account", http.StatusInternalServerError)
 		return nil

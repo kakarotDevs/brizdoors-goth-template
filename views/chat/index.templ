@@ -2,8 +2,8 @@ package chat
 
 import "github.com/kakarotDevs/brizdoors-goth-template/layouts"
 
-templ Index(isDarkMode bool) {
-	@layouts.Base("AI Chat", isDarkMode) {
+templ Index() {
+	@layouts.Base("AI Chat") {
 		<div class="w-full h-[calc(100vh-200px)] flex flex-col bg-bg">
 			<!-- Chat Messages Area - No scrollbar visible -->
 			<div class="flex-1 overflow-y-auto scrollbar-hide" id="chat-scroll-container" style="scrollbar-width: none; -ms-overflow-style: none;">
@@ -32,7 +32,7 @@ templ Index(isDarkMode bool) {
 									name="message"
 									rows="1"
 									placeholder="Message..."
-									class="w-full resize-none bg-transparent text-text placeholder-text-muted focus:outline-none overflow-hidden"
+									class="w-full resize-none bg-transparent text-text placeholder-text-muted focus:outline-none overflow-hidden caret-blue-500"
 									required
 									onkeydown="if(event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); document.getElementById('chat-form').dispatchEvent(new Event('submit', {cancelable: true, bubbles: true})); }"
 									oninput="this.style.height = 'auto'; this.style.height = this.scrollHeight + 'px';"

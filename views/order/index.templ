@@ -2,8 +2,8 @@ package order
 
 import "github.com/kakarotDevs/brizdoors-goth-template/layouts"
 
-templ Index(isDarkMode bool) {
-	@layouts.Base("Order", isDarkMode) {
+templ Index() {
+	@layouts.Base("Order") {
 		<section class="w-full max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
 			<!-- Header -->
 			<div class="text-center mb-8 sm:mb-12">
@@ -50,15 +50,15 @@ templ Index(isDarkMode bool) {
 					<!-- Chat Input -->
 					<form id="chat-form" class="border-t border-bg-light/30 p-4" hx-post="/chat" hx-target="#chat-messages" hx-swap="beforeend" hx-on::after-request="this.reset()">
 						<div class="flex gap-3">
-							<input 
-								type="text" 
-								name="message" 
-								placeholder="Describe what kind of door you're looking for..." 
-								class="flex-1 px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500"
+							<input
+								type="text"
+								name="message"
+								placeholder="Describe what kind of door you're looking for..."
+								class="flex-1 px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-900 placeholder-gray-500 caret-blue-500"
 								required
 							/>
-							<button 
-								type="submit" 
+							<button
+								type="submit"
 								class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center gap-2"
 							>
 								Send

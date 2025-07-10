@@ -80,6 +80,18 @@ func CreateOrUpdateUser(ctx context.Context, db bun.IDB, user *User) error {
 	return err
 }
 
+func UpdateUser(ctx context.Context, db bun.IDB, user *User) error {
+	user.UpdatedAt = time.Now()
+	_, err := db.NewUpdate().Model(user).
+		Set("first_name = ?", user.FirstName).
+		Set("last_name = ?", user.LastName).
+		Set("email = ?", user.Email).
+		Set("updated_at = ?", user.UpdatedAt).
+		Where("id = ?", user.ID).
+		Exec(ctx)
+	return err
+}
+
 func DeleteUser(ctx context.Context, db bun.IDB, id string) error {
 	_, err := db.NewDelete().Model((*User)(nil)).Where("id = ?", id).Exec(ctx)
 	return err

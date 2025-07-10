@@ -21,6 +21,13 @@ func HandleLobby(w http.ResponseWriter, r *http.Request) error {
 		http.Redirect(w, r, "/", http.StatusFound)
 		return nil
 	}
-	isDarkMode := GetThemeFromRequest(r)
-	return Render(w, r, lobby.Index(user.FirstName, isDarkMode))
+
+	// Check if this is an HTMX request
+	if r.Header.Get("HX-Request") == "true" {
+		// For HTMX requests, return just the content without the layout
+		return lobby.IndexContent(user.FirstName).Render(r.Context(), w)
+	}
+
+	// Full page load - use auth base layout
+	return Render(w, r, lobby.Index(user.FirstName))
 }

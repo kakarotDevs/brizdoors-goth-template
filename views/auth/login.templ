@@ -7,17 +7,20 @@ templ LoginForm(errorMsg string) {
 		@partials.Notification(errorMsg, true)
 
 		<div class="relative">
+			<div class="absolute inset-1 rounded-full bg-gradient-to-br from-white/20 via-white/10 to-white/20 shadow-[inset_3px_3px_12px_rgba(0,0,0,0.18),inset_-3px_-3px_12px_rgba(255,255,255,0.92)] transition-all duration-200"></div>
 			<input
 				type="email"
 				id="email"
 				name="email"
 				required
 				placeholder=" "
-				class="peer w-full h-14 bg-bg-light text-text placeholder-transparent rounded-lg px-4 pt-6 pb-2 border-2 border-bg-light/50 focus:outline-none focus:border-blue-500 transition-all duration-200 caret-caret"
+				class="peer relative w-full h-16 bg-transparent text-gray-600 text-base placeholder-transparent px-6 pt-6 pb-2 border-2 border-transparent focus:rounded-full focus:border-blue-500 focus:outline-none focus:ring-0 transition-all duration-200 caret-blue-500 z-10 font-semibold focus:invalid:border-red-500"
 			/>
-			<label for="email" class="absolute left-4 top-2 text-text-muted text-xs pointer-events-none bg-bg-light px-1 rounded transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:bg-transparent peer-placeholder-shown:-translate-y-1/2 peer-focus:top-2 peer-focus:text-xs peer-focus:bg-bg-light peer-focus:translate-y-0 peer-valid:top-2 peer-valid:text-xs peer-valid:bg-bg-light peer-valid:translate-y-0">Email Address</label>
+			<label for="email" class="absolute antialiased left-8 top-2 text-gray-400 tracking-wide pointer-events-none bg-transparent px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:bg-transparent peer-placeholder-shown:-translate-y-1/2 peer-focus:top-2 peer-focus:text-xs peer-focus:bg-transparent peer-focus:translate-y-0 peer-valid:top-2 peer-valid:text-xs peer-valid:bg-transparent peer-valid:translate-y-0 z-20">Email Address</label>
 		</div>
+
 		<div class="relative">
+			<div class="absolute inset-1 rounded-full bg-gradient-to-br from-white/20 via-white/10 to-white/20 shadow-[inset_3px_3px_12px_rgba(0,0,0,0.18),inset_-3px_-3px_12px_rgba(255,255,255,0.92)] transition-all duration-200"></div>
 			<input
 				type="password"
 				id="password"
@@ -25,15 +28,57 @@ templ LoginForm(errorMsg string) {
 				required
 				autocomplete="new-password"
 				placeholder=" "
-				class="peer w-full h-14 bg-bg-light text-text placeholder-transparent rounded-lg px-4 pt-6 pb-2 border-2 border-bg-light/50 focus:outline-none focus:border-blue-500 transition-all duration-200 caret-caret"
+				class="peer relative w-full h-16 bg-transparent text-gray-600 placeholder-transparent rounded-full px-6 pt-6 pb-2 border-2 border-transparent focus:rounded-full focus:border-blue-500 focus:outline-none focus:ring-0 transition-all duration-200 caret-blue-500 z-10 font-semibold focus:invalid:border-red-500"
 			/>
-			<label for="password" class="absolute left-4 top-2 text-text-muted text-xs pointer-events-none bg-bg-light px-1 rounded transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:bg-transparent peer-placeholder-shown:-translate-y-1/2 peer-focus:top-2 peer-focus:text-xs peer-focus:bg-bg-light peer-focus:translate-y-0 peer-valid:top-2 peer-valid:text-xs peer-valid:bg-bg-light peer-valid:translate-y-0">Password</label>
+			<label for="password" class="absolute antialiased left-8 top-2 text-gray-400 tracking-wide pointer-events-none bg-transparent px-1 transition-all duration-200 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:bg-transparent peer-placeholder-shown:-translate-y-1/2 peer-focus:top-2 peer-focus:text-xs peer-focus:bg-transparent peer-focus:translate-y-0 peer-valid:top-2 peer-valid:text-xs peer-valid:bg-transparent peer-valid:translate-y-0 z-20 ">Password</label>
 		</div>
-		<button
-			type="submit"
-			class="w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 active:scale-[0.98] text-white font-semibold px-4 py-3 rounded-md transition-all duration-200 focus:outline-none"
-		>
-			Sign In
-		</button>
+
+		<div class="relative w-full max-w-md">
+			<!-- Layer 1: Lensing Glass Base -->
+			<div
+				class="absolute inset-0 rounded-full z-0 pointer-events-none
+					bg-gradient-radial from-white/10 via-white/5 to-white/10
+					shadow-[inset_0_1px_2px_rgba(255,255,255,0.12),0_10px_20px_rgba(0,0,0,0.5)]"
+			></div>
+
+			<!-- Layer 2: Subtle Blue Tint -->
+			<div
+				class="absolute inset-0 rounded-full z-10 pointer-events-none bg-blue-700/80"
+			></div>
+
+			<!-- Layer 3: Glass Edge Highlight -->
+			<div
+				class="absolute inset-0 rounded-full z-20 pointer-events-none
+					ring-1 ring-white/10
+					shadow-[inset_0_2px_6px_rgba(255,255,255,0.1),inset_0_-1px_2px_rgba(0,0,0,0.3),0_0_0_1px_rgba(255,255,255,0.05)]"
+			></div>
+
+			<!-- Top Glossy Reflection -->
+			<div
+				class="absolute inset-x-0 top-0 h-1/2 rounded-t-full z-30 pointer-events-none
+					bg-gradient-to-b from-white/20 via-white/10 to-transparent opacity-40 transition-opacity duration-300"
+			></div>
+
+			<!-- Button Layer -->
+			<div class="group relative z-40">
+						<button
+					type="submit"
+					class="group-hover:bg-blue-700/80 group-hover:scale-102 group-hover:shadow-2xl w-full h-14 px-4 py-3 rounded-full text-white font-semibold bg-white/5 backdrop-blur-lg
+						transition-all duration-300
+						hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]
+						hover:brightness-110
+						active:scale-[0.97]
+						focus:outline-none"
+				>
+					<span class="antialiased drop-shadow-sm xs:text-base md:text-xl font-semibold group-hover:text-white transition-all duration-300">Sign In</span>
+				</button>
+			</div>
+		</div>
+
+
+
+
+
+
 	</form>
 }

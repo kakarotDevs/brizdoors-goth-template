@@ -66,24 +66,15 @@ func main() {
 
 	// Public Routes
 	r.Get("/", handlers.Make(handlers.HandleHome))
-	r.Get("/about", handlers.Make(handlers.HandleAbout))
-	r.Get("/contact", handlers.Make(handlers.HandleContact))
-	r.Get("/order", handlers.Make(handlers.HandleOrder))
 	r.Get("/register", handlers.Make(handlers.HandleRegister))
 	r.Get("/login", handlers.Make(handlers.HandleLogin))
 	r.Get("/logout", handlers.Make(handlers.HandleLogout))
 	r.Post("/login", handlers.Make(handlers.HandleLogin))
 	r.Post("/register", handlers.Make(handlers.HandleRegister))
-	r.Post("/chat", handlers.Make(handlers.ChatHandler))
-	r.Post("/chat/message", handlers.Make(handlers.HandleChatMessage))
-	r.Post("/chat/new", handlers.Make(handlers.HandleNewChat))
 
-	// Theme
-	r.Post("/toggle-theme", handlers.Make(handlers.ThemeToggleHandler))
-
-	// Navigation
-	r.Get("/nav/mobile", handlers.Make(handlers.HandleMobileNav))
-	r.Get("/nav/mobile-close", handlers.Make(handlers.HandleMobileNavClose))
+	// Navigation (commented out for now)
+	// r.Get("/nav/mobile", handlers.Make(handlers.HandleMobileNav))
+	// r.Get("/nav/mobile-close", handlers.Make(handlers.HandleMobileNavClose))
 
 	// Auth
 	r.Get("/auth/google", handlers.Make(handlers.HandleGoogleLogin))
@@ -100,6 +91,20 @@ func main() {
 		r.Get("/profile", handlers.Make(handlers.HandleProfile))
 		r.Get("/settings", handlers.Make(handlers.HandleSettings))
 		r.Post("/logout", handlers.Make(handlers.HandleLogout))
+
+		// Profile HTMX Routes
+		r.Get("/profile/overview", handlers.Make(handlers.HandleProfileOverview))
+		r.Get("/profile/account", handlers.Make(handlers.HandleProfileAccount))
+		r.Get("/profile/security", handlers.Make(handlers.HandleProfileSecurity))
+		r.Get("/profile/preferences", handlers.Make(handlers.HandleProfilePreferences))
+
+		// Profile Form Submission Routes
+		r.Post("/profile/update", handlers.Make(handlers.HandleProfileUpdate))
+		r.Post("/profile/password", handlers.Make(handlers.HandleProfilePassword))
+		r.Post("/profile/preferences", handlers.Make(handlers.HandleProfilePreferencesUpdate))
+		r.Post("/profile/privacy", handlers.Make(handlers.HandleProfilePrivacyUpdate))
+		r.Post("/profile/language", handlers.Make(handlers.HandleProfileLanguageUpdate))
+		r.Post("/profile/delete", handlers.Make(handlers.HandleProfileDelete))
 	})
 
 	listenAddr := os.Getenv("LISTEN_ADDR")

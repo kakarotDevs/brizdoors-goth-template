@@ -15,9 +15,6 @@ func HandleHome(w http.ResponseWriter, r *http.Request) error {
 	w.Header().Set("Pragma", "no-cache")
 	w.Header().Set("Expires", "0")
 
-	// Get theme preference
-	isLightMode := GetThemeFromRequest(r)
-
 	if isUserLoggedIn(r) {
 		// Logged-in users should be redirected to lobby
 		http.Redirect(w, r, "/lobby", http.StatusFound)
@@ -25,5 +22,5 @@ func HandleHome(w http.ResponseWriter, r *http.Request) error {
 	}
 
 	// Only show login form for non-authenticated users
-	return Render(w, r, home.Index(isLightMode))
+	return Render(w, r, home.Index())
 }

@@ -9,8 +9,7 @@ import (
 
 // HandleChatPage renders the main chat interface
 func HandleChatPage(w http.ResponseWriter, r *http.Request) error {
-	isDarkMode := GetThemeFromRequest(r)
-	return Render(w, r, chat.Index(isDarkMode))
+	return Render(w, r, chat.Index())
 }
 
 // HandleChatMessage handles individual chat messages
