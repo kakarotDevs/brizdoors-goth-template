@@ -64,17 +64,29 @@ func main() {
 		http.Error(w, "Page not found", http.StatusNotFound)
 	})
 
+	// Initialize form handler
+	formHandler := handlers.NewFormHandler()
+
 	// Public Routes
 	r.Get("/", handlers.Make(handlers.HandleHome))
-	r.Get("/register", handlers.Make(handlers.HandleRegister))
 	r.Get("/login", handlers.Make(handlers.HandleLogin))
 	r.Get("/logout", handlers.Make(handlers.HandleLogout))
-	r.Post("/login", handlers.Make(handlers.HandleLogin))
-	r.Post("/register", handlers.Make(handlers.HandleRegister))
 
-	// Navigation (commented out for now)
-	// r.Get("/nav/mobile", handlers.Make(handlers.HandleMobileNav))
-	// r.Get("/nav/mobile-close", handlers.Make(handlers.HandleMobileNavClose))
+	// Form handling routes
+	r.Post("/form/login", handlers.Make(formHandler.HandleLoginForm))
+	r.Post("/form/forgot-password", handlers.Make(formHandler.HandleForgotPasswordForm))
+	r.Post("/form/reset-password", handlers.Make(formHandler.HandleResetPasswordForm))
+
+	// Demo Routes (for testing spinners)
+	r.Get("/demo", handlers.Make(handlers.HandleSpinnerDemo))
+	r.Post("/demo/loading", handlers.Make(handlers.HandleDemoLoading))
+	r.Post("/demo/form", handlers.Make(handlers.HandleDemoForm))
+	r.Get("/demo/content", handlers.Make(handlers.HandleDemoContent))
+	r.Get("/demo/clear", handlers.Make(handlers.HandleDemoClear))
+
+	// Password Reset Routes (page display only)
+	r.Get("/forgot-password", handlers.Make(handlers.HandleForgotPassword))
+	r.Get("/reset-password", handlers.Make(handlers.HandleResetPassword))
 
 	// Auth
 	r.Get("/auth/google", handlers.Make(handlers.HandleGoogleLogin))

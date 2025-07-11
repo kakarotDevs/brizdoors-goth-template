@@ -253,6 +253,21 @@ templ AccountContent(user models.User) {
 							placeholder="Enter email address"
 						/>
 					</div>
+					<div class="sm:col-span-2">
+						<label class="block text-sm font-medium text-text-muted mb-2">Phone Number</label>
+						<input
+							type="tel"
+							name="phone"
+							if user.Phone != nil {
+								value={*user.Phone}
+							} else {
+								value=""
+							}
+							class="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/50 backdrop-blur-sm rounded-xl border border-white/30 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all duration-200"
+							placeholder="Enter phone number (optional)"
+						/>
+						<p class="text-xs text-text-muted mt-1">Add your phone number to enable SMS password reset</p>
+					</div>
 				</div>
 				<div class="mt-4 sm:mt-6">
 					<button type="submit" class="px-4 sm:px-6 py-2 sm:py-3 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors duration-200">

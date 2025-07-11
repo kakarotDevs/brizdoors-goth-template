@@ -1,0 +1,82 @@
+package partials
+
+// BrandedSpinner creates a loading spinner using the Brizdoors logo that rotates like a door
+templ BrandedSpinner() {
+	<div class="flex items-center justify-center">
+		<div class="relative perspective-1000">
+			<!-- Door Container - positioned so left edge stays fixed -->
+			<div class="relative w-12 h-12" style="transform-origin: 0% 50%;">
+				<!-- Rotating Door (Logo) -->
+				<div class="w-12 h-12 transform-gpu animate-door-swing preserve-3d" style="transform-origin: 0% 50%;">
+					<img
+						src="/public/branding/logos/light/brizdoors-icon-light-4000.svg"
+						alt="Loading..."
+						class="w-full h-full object-contain drop-shadow-lg"
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+}
+
+// BrandedSpinnerWhite creates a white version using the dark logo for buttons
+templ BrandedSpinnerWhite() {
+	<div class="flex items-center justify-center">
+		<div class="relative perspective-1000">
+			<!-- Door Container - positioned so left edge stays fixed -->
+			<div class="relative w-12 h-12" style="transform-origin: 0% 50%;">
+				<!-- Rotating Door (Logo) -->
+				<div class="w-12 h-12 transform-gpu animate-door-swing preserve-3d" style="transform-origin: 0% 50%;">
+					<img
+						src="/public/branding/logos/dark/brizdoors-icon-dark-4000.svg"
+						alt="Loading..."
+						class="w-full h-full object-contain drop-shadow-lg"
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+}
+
+
+
+// BrandedSpinnerLarge creates a larger version of the branded spinner
+templ BrandedSpinnerLarge() {
+	<div class="flex items-center justify-center">
+		<div class="relative perspective-1000">
+			<!-- Door Container - positioned so left edge stays fixed -->
+			<div class="relative w-20 h-20" style="transform-origin: 0% 50%;">
+				<!-- Rotating Door (Logo) -->
+				<div class="w-20 h-20 transform-gpu animate-door-swing-slow preserve-3d" style="transform-origin: 0% 50%;">
+					<img
+						src="/public/branding/logos/light/brizdoors-icon-light-4000.svg"
+						alt="Loading..."
+						class="w-full h-full object-contain drop-shadow-xl"
+					/>
+				</div>
+			</div>
+		</div>
+	</div>
+}
+
+// BrandedSpinnerWithText creates a spinner with loading text
+templ BrandedSpinnerWithText(text string) {
+	<div class="flex flex-col items-center justify-center space-y-4">
+		<div class="relative perspective-1000">
+			<!-- Door Container - positioned so left edge stays fixed -->
+			<div class="relative w-12 h-12" style="transform-origin: 0% 50%;">
+				<!-- Rotating Door (Logo) -->
+				<div class="w-12 h-12 transform-gpu animate-door-swing preserve-3d" style="transform-origin: 0% 50%;">
+					<img
+						src="/public/branding/logos/light/brizdoors-icon-light-4000.svg"
+						alt="Loading..."
+						class="w-full h-full object-contain drop-shadow-lg"
+					/>
+				</div>
+			</div>
+		</div>
+		if text != "" {
+			<p class="text-text-muted text-sm font-medium animate-pulse">{ text }</p>
+		}
+	</div>
+}

@@ -19,7 +19,7 @@ migrate-up:
 dev:
 	@echo "Starting development environment..."
 	@echo "--------------------------------------------------------------"
-	@echo "You must run: 'fly mpg proxy, and select brizdoors as th eorganization and then dev-b as the cluster ' in another terminal before running make dev."
+	@echo "In another terminal before running make dev run: 'fly mpg proxy, and select brizdoors as the organization and then dev-db as the cluster"
 	@echo "DEV_DATABASE_URL for local dev should change when in production"
 	@echo "--------------------------------------------------------------"
 	npx concurrently \

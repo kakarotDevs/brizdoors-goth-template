@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"regexp"
 	"strings"
 	"time"
 
@@ -47,55 +48,11 @@ func generateState() string {
 	return base64.URLEncoding.EncodeToString(b)
 }
 
-func HandleRegister(w http.ResponseWriter, r *http.Request) error {
-	if r.Method == http.MethodGet {
-		return Render(w, r, authviews.Register(""))
-	}
-
-	if r.Method == http.MethodPost {
-		email := r.FormValue("email")
-		password := r.FormValue("password")
-
-		if email == "" || password == "" {
-			return Render(w, r, authviews.Register("Email and password are required"))
-		}
-
-		hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
-		if err != nil {
-			return Render(w, r, authviews.Register("Error creating account"))
-		}
-
-		hashedPasswordString := string(hashedPassword)
-
-		user := models.User{
-			ID:        uuid.New().String(),
-			Email:     email,
-			Password:  &hashedPasswordString,
-			FirstName: "",
-			LastName:  "",
-			Role:      "user",
-			Picture:   "",
-			CreatedAt: time.Now(),
-			UpdatedAt: time.Now(),
-		}
-
-		err = models.CreateUser(r.Context(), db.DB, &user)
-		if err != nil {
-			if err == models.ErrUserAlreadyExists {
-				return Render(w, r, authviews.Register("User with that email already exists"))
-			}
-			return Render(w, r, authviews.Register("Error creating account"))
-		}
-
-		// On success, redirect (HTMX handles redirect headers)
-		internal.SetUserSession(w, user.ID)
-		w.Header().Set("HX-Redirect", "/lobby")
-		w.WriteHeader(http.StatusOK)
-		return nil
-	}
-
-	w.WriteHeader(http.StatusMethodNotAllowed)
-	return nil
+// cleanPhoneNumber removes all whitespace and formatting characters
+func cleanPhoneNumber(phone string) string {
+	// Remove all whitespace, dashes, parentheses, and plus signs
+	re := regexp.MustCompile(`[\s\-\(\)\+]`)
+	return re.ReplaceAllString(phone, "")
 }
 
 func HandleLogin(w http.ResponseWriter, r *http.Request) error {
@@ -109,38 +66,68 @@ func HandleLogin(w http.ResponseWriter, r *http.Request) error {
 		return nil
 	}
 
-	email := r.FormValue("email")
+	contact := r.FormValue("contact")
 	password := r.FormValue("password")
 
-	if email == "" || password == "" {
-		msg := "Email and password are required"
+	if contact == "" || password == "" {
+		msg := "Email/phone and password are required"
 		if r.Header.Get("HX-Request") == "true" {
-			return Render(w, r, authviews.LoginForm(msg))
+			return Render(w, r, authviews.LoginSection(msg))
 		}
 		http.Error(w, msg, http.StatusBadRequest)
 		return nil
 	}
 
-	user, err := models.GetUserByEmail(r.Context(), db.DB, email)
+	// Determine if input is email or phone
+	isEmail := strings.Contains(contact, "@")
+
+	var user *models.User
+	var err error
+
+	if isEmail {
+		user, err = models.GetUserByEmail(r.Context(), db.DB, contact)
+	} else {
+		user, err = models.GetUserByPhone(r.Context(), db.DB, contact)
+	}
+
 	if err == models.ErrUserNotFound {
-		return createAccountAndLogin(w, r, email, password)
+		return createAccountAndLogin(w, r, contact, password)
 	}
 	if err != nil {
 		return fmt.Errorf("error fetching user: %w", err)
 	}
 
 	if err := bcrypt.CompareHashAndPassword([]byte(*user.Password), []byte(password)); err != nil {
-		msg := "Invalid email or password"
+		msg := "Invalid email/phone or password"
 		if r.Header.Get("HX-Request") == "true" {
-			return Render(w, r, authviews.LoginForm(msg))
+			// Add a small delay to test the loading state
+			time.Sleep(1 * time.Second)
+			return Render(w, r, authviews.LoginSection(msg))
 		}
 		http.Error(w, msg, http.StatusUnauthorized)
 		return nil
 	}
 
 	internal.SetUserSession(w, user.ID)
-	http.Redirect(w, r, "/lobby", http.StatusFound)
+
+	// Handle HTMX requests with redirect header
+	if r.Header.Get("HX-Request") == "true" {
+		w.Header().Set("HX-Redirect", "/lobby")
+		w.WriteHeader(http.StatusOK)
+	} else {
+		http.Redirect(w, r, "/lobby", http.StatusFound)
+	}
 	return nil
+}
+
+// HandleLoginClear clears any error messages from the login form
+func HandleLoginClear(w http.ResponseWriter, r *http.Request) error {
+	return Render(w, r, authviews.LoginSection(""))
+}
+
+// HandleLoginNotificationClear clears only the notification area
+func HandleLoginNotificationClear(w http.ResponseWriter, r *http.Request) error {
+	return Render(w, r, partials.Notification("", true))
 }
 
 func HandleLogout(w http.ResponseWriter, r *http.Request) error {
@@ -330,12 +317,12 @@ func HandleAuthMenuContent(w http.ResponseWriter, r *http.Request) error {
 }
 
 // createAccountAndLogin creates a new account and logs the user in automatically
-func createAccountAndLogin(w http.ResponseWriter, r *http.Request, email, password string) error {
+func createAccountAndLogin(w http.ResponseWriter, r *http.Request, contact, password string) error {
 	// Hash the password
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(password), bcrypt.DefaultCost)
 	if err != nil {
 		if r.Header.Get("HX-Request") == "true" {
-			return Render(w, r, authviews.Register("Error creating account"))
+			return Render(w, r, authviews.LoginSection("Error creating account"))
 		}
 		http.Error(w, "Error creating account", http.StatusInternalServerError)
 		return nil
@@ -343,11 +330,25 @@ func createAccountAndLogin(w http.ResponseWriter, r *http.Request, email, passwo
 
 	hashedPasswordString := string(hashedPassword)
 
+	// Determine if input is email or phone
+	isEmail := strings.Contains(contact, "@")
+
 	// Create the user
 	user := models.User{
 		ID:       uuid.New().String(),
-		Email:    email,
+		Email:    "",
+		Phone:    nil,
 		Password: &hashedPasswordString,
+	}
+
+	// Set the appropriate field based on input type
+	if isEmail {
+		user.Email = contact
+	} else {
+		// Clean the phone number before storing
+		cleanPhone := cleanPhoneNumber(contact)
+		user.Phone = &cleanPhone
+		// For phone-only accounts, leave email as empty string (will be NULL in DB due to nullzero tag)
 	}
 
 	err = models.CreateUser(r.Context(), db.DB, &user)
@@ -355,13 +356,13 @@ func createAccountAndLogin(w http.ResponseWriter, r *http.Request, email, passwo
 		if err == models.ErrUserAlreadyExists {
 			// This shouldn't happen since we checked, but handle gracefully
 			if r.Header.Get("HX-Request") == "true" {
-				return Render(w, r, authviews.Register("Account already exists. Please try logging in."))
+				return Render(w, r, authviews.LoginSection("Account already exists. Please try logging in."))
 			}
 			http.Error(w, "Account already exists", http.StatusConflict)
 			return nil
 		}
 		if r.Header.Get("HX-Request") == "true" {
-			return Render(w, r, authviews.Register("Error creating account"))
+			return Render(w, r, authviews.LoginSection("Error creating account"))
 		}
 		http.Error(w, "Error creating account", http.StatusInternalServerError)
 		return nil

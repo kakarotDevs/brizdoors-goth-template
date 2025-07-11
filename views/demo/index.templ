@@ -1,0 +1,125 @@
+package demo
+
+import "github.com/kakarotDevs/brizdoors-goth-template/views/partials"
+import "github.com/kakarotDevs/brizdoors-goth-template/layouts"
+
+// Index shows the spinner demo page
+templ Index() {
+	@layouts.Base("Spinner Demo") {
+		<div class="max-w-4xl mx-auto p-8 space-y-12">
+			<h1 class="text-3xl font-bold text-text mb-8">Branded Spinner Examples</h1>
+
+			<!-- Basic Spinners -->
+			<section class="space-y-6">
+				<h2 class="text-2xl font-semibold text-text">Basic Spinners</h2>
+				<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+					<div class="text-center">
+						<h3 class="text-lg font-medium text-text mb-4">Default</h3>
+						@partials.BrandedSpinner()
+					</div>
+					<div class="text-center">
+						<h3 class="text-lg font-medium text-text mb-4">White</h3>
+						@partials.BrandedSpinnerWhite()
+					</div>
+					<div class="text-center">
+						<h3 class="text-lg font-medium text-text mb-4">Large</h3>
+						@partials.BrandedSpinnerLarge()
+					</div>
+				</div>
+			</section>
+
+			<!-- Spinner with Text -->
+			<section class="space-y-6">
+				<h2 class="text-2xl font-semibold text-text">With Loading Text</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<div class="text-center">
+						@partials.BrandedSpinnerWithText("Loading your account...")
+					</div>
+					<div class="text-center">
+						@partials.BrandedSpinnerWithText("Processing payment...")
+					</div>
+				</div>
+			</section>
+
+			<!-- HTMX Integration Examples -->
+			<section class="space-y-6">
+				<h2 class="text-2xl font-semibold text-text">HTMX Integration Examples</h2>
+
+				<!-- Button with Loading State -->
+				<div class="space-y-4">
+					<h3 class="text-lg font-medium text-text">Button Loading State (New Approach)</h3>
+					<button
+						class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
+						hx-post="/demo/loading"
+						hx-target="#loading-result"
+						hx-indicator="#button-spinner"
+					>
+						<img
+							src="/public/branding/logos/dark/brizdoors-icon-dark-4000.svg"
+							alt="Brizdoors"
+							class="w-5 h-5 htmx-request:animate-door-swing"
+							style="transform-origin: 0% 50%;"
+							id="button-spinner"
+						/>
+						<span>Click to Load</span>
+					</button>
+					<div id="loading-result" class="mt-4 p-4 bg-bg-light rounded-lg"></div>
+				</div>
+
+				<!-- Form with Loading State -->
+				<div class="space-y-4">
+					<h3 class="text-lg font-medium text-text">Form Loading State (New Approach)</h3>
+					<form
+						class="space-y-4 max-w-md"
+						hx-post="/demo/form"
+						hx-target="#form-result"
+						hx-indicator="#form-spinner"
+					>
+						<input
+							type="text"
+							name="input"
+							placeholder="Enter some text"
+							class="w-full px-4 py-2 border border-bg-light rounded-lg"
+							required
+						/>
+						<button
+							type="submit"
+							class="w-full px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
+						>
+							<img
+								src="/public/branding/logos/dark/brizdoors-icon-dark-4000.svg"
+								alt="Brizdoors"
+								class="w-5 h-5 htmx-request:animate-door-swing"
+								style="transform-origin: 0% 50%;"
+								id="form-spinner"
+							/>
+							<span>Submit Form</span>
+						</button>
+					</form>
+					<div id="form-result" class="mt-4 p-4 bg-bg-light rounded-lg"></div>
+				</div>
+
+				<!-- Content Loading -->
+				<div class="space-y-4">
+					<h3 class="text-lg font-medium text-text">Content Loading</h3>
+					<button
+						class="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+						hx-get="/demo/content"
+						hx-target="#content-area"
+						hx-indicator="#content-spinner"
+					>
+						Load Content
+					</button>
+					<div id="content-area" class="mt-4 min-h-32 flex items-center justify-center">
+						<div id="content-spinner" class="htmx-indicator">
+							@partials.BrandedSpinnerWithText("Loading content...")
+						</div>
+						<div class="htmx-request:hidden text-text-muted">
+							Click the button to load content
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	}
+}

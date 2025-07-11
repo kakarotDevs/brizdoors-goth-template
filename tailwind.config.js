@@ -27,7 +27,36 @@ module.exports = {
         apple: "-0.01em",
         "apple-tight": "-0.02em",
       },
+      animation: {
+        "spin-slow": "spin 2s linear infinite",
+        "door-swing": "doorSwing 1.5s ease-in-out infinite",
+        "door-swing-slow": "doorSwing 2.5s ease-in-out infinite",
+      },
+      keyframes: {
+        doorSwing: {
+          "0%, 100%": {
+            transform: "skewY(0deg) scaleX(1)",
+            filter: "brightness(1)",
+          },
+          "50%": {
+            transform: "skewY(35deg) scaleX(0.6)",
+            filter: "brightness(0.8)",
+          },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        ".perspective-1000": {
+          perspective: "1000px",
+        },
+        ".preserve-3d": {
+          "transform-style": "preserve-3d",
+        },
+      };
+      addUtilities(newUtilities);
+    },
+  ],
 };

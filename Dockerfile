@@ -1,20 +1,10 @@
 # syntax = docker/dockerfile:1
 
-# Adjust NODE_VERSION as desired
+# Build stage for Node.js (Tailwind CSS)
 ARG NODE_VERSION=24.2.0
-FROM node:${NODE_VERSION}-slim AS base
+FROM node:${NODE_VERSION}-slim AS node-builder
 
-LABEL fly_launch_runtime="Node.js"
-
-# Node.js app lives here
 WORKDIR /app
-
-# Set production environment
-ENV NODE_ENV="production"
-
-
-# Throw-away build stage to reduce size of final image
-FROM base AS build
 
 # Install packages needed to build node modules
 RUN apt-get update -qq && \
@@ -24,16 +14,43 @@ RUN apt-get update -qq && \
 COPY package-lock.json package.json ./
 RUN npm ci
 
-# Copy application code
+# Copy application code and build CSS
+COPY . .
+RUN npm run build:css
+
+# Build stage for Go
+FROM golang:1.21-alpine AS go-builder
+
+WORKDIR /app
+
+# Copy go mod files
+COPY go.mod go.sum ./
+RUN go mod download
+
+# Copy source code
 COPY . .
 
+# Build the Go application
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
 
-# Final stage for app image
-FROM base
+# Final stage
+FROM alpine:latest
 
-# Copy built application
-COPY --from=build /app /app
+RUN apk --no-cache add ca-certificates
 
-# Start the server by default, this can be overwritten at runtime
+WORKDIR /root/
+
+# Copy the binary from go-builder stage
+COPY --from=go-builder /app/app .
+
+# Copy the built CSS from node-builder stage
+COPY --from=node-builder /app/public/styles.css ./public/styles.css
+
+# Copy other static files
+COPY --from=node-builder /app/public/branding ./public/branding
+
+# Expose port
 EXPOSE 3000
-CMD [ "node", "tailwind.config.js" ]
+
+# Run the binary
+CMD ["./app"]

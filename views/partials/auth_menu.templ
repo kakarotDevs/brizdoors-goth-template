@@ -3,17 +3,32 @@ package partials
 templ AuthMenu(name string, picture string, email string) {
 	<div class="relative inline-block align-top w-48" id="auth-menu-container">
 		<!-- Glass Lens Button -->
-		<div class="relative w-full">
+		<div class="relative w-full group">
 			<!-- Layer 1: Glass Base -->
 			<div
 				class="absolute inset-0 rounded-full z-0 pointer-events-none
-					bg-gradient-radial from-white/10 via-white/5 to-white/10
-					shadow-[inset_0_1px_2px_rgba(255,255,255,0.12),0_4px_8px_rgba(0,0,0,0.3)]"
+					bg-gradient-to-b from-white/10 via-white/8 to-white/10
+					shadow-[inset_0_1px_2px_rgba(255,255,255,0.12),0_6px_12px_rgba(0,0,0,0.3)]
+					group-hover:shadow-[inset_0_1px_2px_rgba(255,255,255,0.12),0_10px_20px_rgba(0,0,0,0.5)]
+					transition-all duration-300"
+			></div>
+
+			<!-- Curved Glass Depth Layer -->
+			<div
+				class="absolute inset-0 rounded-full z-5 pointer-events-none
+					bg-gradient-radial from-transparent via-white/5 to-white/10
+					shadow-[inset_0_4px_8px_rgba(0,0,0,0.2),inset_0_-2px_4px_rgba(255,255,255,0.3)]
+					transition-all duration-300"
+			></div>
+
+			<!-- Blue Tint Layer -->
+			<div
+				class="absolute inset-0 rounded-full z-10 pointer-events-none bg-white/40"
 			></div>
 
 			<!-- Layer 2: Subtle Light Tint -->
 			<div
-				class="absolute inset-0 rounded-full z-10 pointer-events-none
+				class="absolute inset-0 rounded-full z-15 pointer-events-none
 					bg-gradient-to-br from-white/15 via-gray-100/10 to-white/20
 					backdrop-blur-xl transition-colors duration-300"
 			></div>
@@ -22,13 +37,7 @@ templ AuthMenu(name string, picture string, email string) {
 			<div
 				class="absolute inset-0 rounded-full z-20 pointer-events-none
 					ring-1 ring-white/10
-					shadow-[inset_0_2px_6px_rgba(255,255,255,0.1),inset_0_-1px_2px_rgba(0,0,0,0.3),0_0_0_1px_rgba(255,255,255,0.05)]"
-			></div>
-
-			<!-- Top Glossy Reflection -->
-			<div
-				class="absolute inset-x-0 top-0 h-1/2 rounded-t-full z-30 pointer-events-none
-					bg-gradient-to-b from-white/20 via-white/10 to-transparent opacity-40 transition-opacity duration-300"
+					shadow-[inset_0_-1px_2px_rgba(0,0,0,0.3),0_0_0_1px_rgba(255,255,255,0.05)]"
 			></div>
 
 			<!-- Button Layer -->
@@ -36,11 +45,13 @@ templ AuthMenu(name string, picture string, email string) {
 				type="button"
 				class="relative z-40 flex items-center px-4 py-2.5 rounded-full text-text font-medium w-full justify-between
 					bg-white/5 backdrop-blur-lg
+					shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),inset_0_-1px_2px_rgba(255,255,255,0.2)]
 					transition-all duration-300
 					hover:bg-white/8
-					hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]
+					hover:shadow-[inset_0_3px_6px_rgba(0,0,0,0.15),inset_0_-2px_4px_rgba(255,255,255,0.3),0_0_25px_rgba(255,255,255,0.4),0_0_50px_rgba(255,255,255,0.15),0_0_75px_rgba(255,255,255,0.05)]
 					hover:brightness-110
-					active:scale-[0.97]
+					hover:scale-103
+					active:scale-95
 					focus:outline-none"
 				id="auth-menu-button"
 				aria-haspopup="true"
@@ -70,7 +81,7 @@ templ AuthMenu(name string, picture string, email string) {
 				</span>
 
 				<!-- Chevron Icon -->
-				<svg class="w-4 h-4 ml-2 text-text-muted group-hover:text-text transition-all duration-200 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<svg class="w-4 h-4 ml-2 text-text-muted group-hover:text-text transition-all duration-200 transform rotate-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
 				</svg>
 			</button>
@@ -82,17 +93,32 @@ templ AuthMenu(name string, picture string, email string) {
 templ AuthMenuOpen(name string, picture string, email string) {
 	<div class="relative inline-block align-top w-48" id="auth-menu-container">
 		<!-- Keep the same button as closed state -->
-		<div class="relative w-full">
+		<div class="relative w-full group">
 			<!-- Layer 1: Glass Base -->
 			<div
 				class="absolute inset-0 rounded-full z-0 pointer-events-none
-					bg-gradient-radial from-white/10 via-white/5 to-white/10
-					shadow-[inset_0_1px_2px_rgba(255,255,255,0.12),0_4px_8px_rgba(0,0,0,0.3)]"
+					bg-gradient-to-b from-white/10 via-white/8 to-white/10
+					shadow-[inset_0_1px_2px_rgba(255,255,255,0.12),0_6px_12px_rgba(0,0,0,0.3)]
+					group-hover:shadow-[inset_0_1px_2px_rgba(255,255,255,0.12),0_10px_20px_rgba(0,0,0,0.5)]
+					transition-all duration-300"
+			></div>
+
+			<!-- Curved Glass Depth Layer -->
+			<div
+				class="absolute inset-0 rounded-full z-5 pointer-events-none
+					bg-gradient-radial from-transparent via-white/5 to-white/10
+					shadow-[inset_0_4px_8px_rgba(0,0,0,0.2),inset_0_-2px_4px_rgba(255,255,255,0.3)]
+					transition-all duration-300"
+			></div>
+
+			<!-- Blue Tint Layer -->
+			<div
+				class="absolute inset-0 rounded-full z-10 pointer-events-none bg-white/40"
 			></div>
 
 			<!-- Layer 2: Subtle Light Tint -->
 			<div
-				class="absolute inset-0 rounded-full z-10 pointer-events-none
+				class="absolute inset-0 rounded-full z-15 pointer-events-none
 					bg-gradient-to-br from-white/15 via-gray-100/10 to-white/20
 					backdrop-blur-xl transition-colors duration-300"
 			></div>
@@ -101,13 +127,7 @@ templ AuthMenuOpen(name string, picture string, email string) {
 			<div
 				class="absolute inset-0 rounded-full z-20 pointer-events-none
 					ring-1 ring-white/10
-					shadow-[inset_0_2px_6px_rgba(255,255,255,0.1),inset_0_-1px_2px_rgba(0,0,0,0.3),0_0_0_1px_rgba(255,255,255,0.05)]"
-			></div>
-
-			<!-- Top Glossy Reflection -->
-			<div
-				class="absolute inset-x-0 top-0 h-1/2 rounded-t-full z-30 pointer-events-none
-					bg-gradient-to-b from-white/20 via-white/10 to-transparent opacity-40 transition-opacity duration-300"
+					shadow-[inset_0_-1px_2px_rgba(0,0,0,0.3),0_0_0_1px_rgba(255,255,255,0.05)]"
 			></div>
 
 			<!-- Button Layer -->
@@ -115,11 +135,13 @@ templ AuthMenuOpen(name string, picture string, email string) {
 				type="button"
 				class="relative z-40 flex items-center px-4 py-2.5 rounded-full text-text font-medium w-full justify-between
 					bg-white/5 backdrop-blur-lg
+					shadow-[inset_0_2px_4px_rgba(0,0,0,0.1),inset_0_-1px_2px_rgba(255,255,255,0.2)]
 					transition-all duration-300
 					hover:bg-white/8
-					hover:shadow-[0_0_15px_rgba(255,255,255,0.2)]
+					hover:shadow-[inset_0_3px_6px_rgba(0,0,0,0.15),inset_0_-2px_4px_rgba(255,255,255,0.3),0_0_25px_rgba(255,255,255,0.4),0_0_50px_rgba(255,255,255,0.15),0_0_75px_rgba(255,255,255,0.05)]
 					hover:brightness-110
-					active:scale-[0.97]
+					hover:scale-105
+					active:scale-95
 					focus:outline-none"
 				id="auth-menu-button"
 				aria-haspopup="true"
@@ -149,19 +171,29 @@ templ AuthMenuOpen(name string, picture string, email string) {
 				</span>
 
 				<!-- Chevron Icon -->
-				<svg class="w-4 h-4 ml-2 text-text-muted group-hover:text-text transition-all duration-200 transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+				<svg class="w-4 h-4 ml-2 text-text-muted group-hover:text-text transition-all duration-200 transform rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
 				</svg>
 			</button>
 		</div>
 
 		<!-- Expanded Menu Below -->
-		<div class="absolute top-full right-0 w-72 mt-2 origin-top-right z-[9999]">
+		<div class="absolute top-full right-0 w-72 mt-2 origin-top-right z-[9999] group">
 			<!-- Layer 1: Glass Base -->
 			<div
 				class="absolute inset-0 rounded-2xl z-0 pointer-events-none
-					bg-gradient-radial from-white/10 via-white/5 to-white/10
-					shadow-[inset_0_1px_2px_rgba(255,255,255,0.12),0_10px_20px_rgba(0,0,0,0.5)]"
+					bg-gradient-to-b from-white/10 via-white/8 to-white/10
+					shadow-[inset_0_1px_2px_rgba(255,255,255,0.12),0_6px_12px_rgba(0,0,0,0.3)]
+					group-hover:shadow-[inset_0_1px_2px_rgba(255,255,255,0.12),0_10px_20px_rgba(0,0,0,0.5)]
+					transition-all duration-300"
+			></div>
+
+			<!-- Curved Glass Depth Layer -->
+			<div
+				class="absolute inset-0 rounded-2xl z-5 pointer-events-none
+					bg-gradient-radial from-transparent via-white/5 to-white/10
+					shadow-[inset_0_4px_8px_rgba(0,0,0,0.2),inset_0_-2px_4px_rgba(255,255,255,0.3)]
+					transition-all duration-300"
 			></div>
 
 			<!-- Layer 2: Subtle Light Tint -->
@@ -175,18 +207,12 @@ templ AuthMenuOpen(name string, picture string, email string) {
 			<div
 				class="absolute inset-0 rounded-2xl z-20 pointer-events-none
 					ring-1 ring-white/10
-					shadow-[inset_0_2px_6px_rgba(255,255,255,0.1),inset_0_-1px_2px_rgba(0,0,0,0.3),0_0_0_1px_rgba(255,255,255,0.05)]"
-			></div>
-
-			<!-- Top Glossy Reflection -->
-			<div
-				class="absolute inset-x-0 top-0 h-1/2 rounded-t-2xl z-30 pointer-events-none
-					bg-gradient-to-b from-white/20 via-white/10 to-transparent opacity-40 transition-opacity duration-300"
+					shadow-[inset_0_-1px_2px_rgba(0,0,0,0.3),0_0_0_1px_rgba(255,255,255,0.05)]"
 			></div>
 
 			<!-- Menu Content -->
 			<div
-				class="relative z-[10000] bg-white/5 backdrop-blur-lg rounded-2xl shadow-2xl
+				class="relative z-[10000] bg-white/2 backdrop-blur-3xl rounded-2xl shadow-2xl
 					transform transition-all duration-500 ease-out scale-100
 					animate-in slide-in-from-top-2 fade-in duration-300"
 				style="animation: menuExpand 0.5s ease-out forwards;"

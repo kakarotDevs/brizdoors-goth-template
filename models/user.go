@@ -11,16 +11,17 @@ import (
 )
 
 type User struct {
-	ID        string `bun:",pk,type:uuid,default:gen_random_uuid()"`
-	GoogleID  string `bun:"google_id,unique,nullzero"`
-	FirstName string `bun:",nullzero"`
-	LastName  string `bun:",nullzero"`
-	Role      string `bun:",notnull,default:'user'"` // e.g. "user", "admin"
-	Email     string `bun:",unique,notnull"`
+	ID        string  `bun:",pk,type:uuid,default:gen_random_uuid()"`
+	GoogleID  string  `bun:"google_id,unique,nullzero"`
+	FirstName string  `bun:",nullzero"`
+	LastName  string  `bun:",nullzero"`
+	Role      string  `bun:",notnull,default:'user'"` // e.g. "user", "admin"
+	Email     string  `bun:",unique,nullzero"`
+	Phone     *string `bun:",unique,nullzero"`
 	Picture   string
 	Password  *string   `bun:",nullzero"`
-	CreatedAt time.Time `bun:",null,default:current_timestamp"`
-	UpdatedAt time.Time `bun:",null,default:current_timestamp"`
+	CreatedAt time.Time `bun:",default:current_timestamp"`
+	UpdatedAt time.Time `bun:",default:current_timestamp"`
 }
 
 var (
@@ -64,6 +65,18 @@ func GetUserByGoogleID(ctx context.Context, db bun.IDB, googleID string) (*User,
 	return user, nil
 }
 
+func GetUserByPhone(ctx context.Context, db bun.IDB, phone string) (*User, error) {
+	user := new(User)
+	err := db.NewSelect().Model(user).Where("phone = ?", phone).Scan(ctx)
+	if err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return nil, ErrUserNotFound
+		}
+		return nil, err
+	}
+	return user, nil
+}
+
 func CreateUser(ctx context.Context, db bun.IDB, user *User) error {
 	_, err := db.NewInsert().Model(user).Exec(ctx)
 	return err
@@ -86,6 +99,7 @@ func UpdateUser(ctx context.Context, db bun.IDB, user *User) error {
 		Set("first_name = ?", user.FirstName).
 		Set("last_name = ?", user.LastName).
 		Set("email = ?", user.Email).
+		Set("phone = ?", user.Phone).
 		Set("updated_at = ?", user.UpdatedAt).
 		Where("id = ?", user.ID).
 		Exec(ctx)

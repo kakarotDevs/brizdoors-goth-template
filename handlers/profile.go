@@ -113,6 +113,7 @@ func HandleProfileUpdate(w http.ResponseWriter, r *http.Request) error {
 		firstName := r.FormValue("first_name")
 		lastName := r.FormValue("last_name")
 		email := r.FormValue("email")
+		phone := r.FormValue("phone")
 
 		// Update user fields
 		if firstName != "" {
@@ -123,6 +124,11 @@ func HandleProfileUpdate(w http.ResponseWriter, r *http.Request) error {
 		}
 		if email != "" {
 			user.Email = email
+		}
+		if phone != "" {
+			user.Phone = &phone
+		} else {
+			user.Phone = nil
 		}
 
 		// Save to database
